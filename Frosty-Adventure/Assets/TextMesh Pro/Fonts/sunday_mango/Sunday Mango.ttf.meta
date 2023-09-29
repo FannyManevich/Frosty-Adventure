@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 175704277709022428ea3a3e5f75a4ea
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Sunday Mango
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: b1c4ad97eb815e143add20c47393c2af, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
