@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a4aeb6eee458ce04a9959c0fcbd686f1
+guid: f7f054d6c248cef48a62ff1cff832510
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 1
+  spriteExtrude: 0
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
@@ -67,7 +67,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: swimming_0
+      name: standing_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 63
-        height: 57
+        width: 90
+        height: 89
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 522460149e30b6d4dab33c42d03f5065
-      internalID: 1892860684
+      spriteID: 8f77fde85916bd04ca4366a6782687cc
+      internalID: 721636038
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: swimming_1
+      name: standing_1
       rect:
         serializedVersion: 2
-        x: 0
+        x: 90
         y: 0
-        width: 63
-        height: 57
+        width: 90
+        height: 89
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,20 +140,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4488a86a24c7230429ae45ae644d2906
-      internalID: -1688463750
+      spriteID: 2847868e9c5046d4cab8e3c4b1064565
+      internalID: -1314508604
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: swimming_2
+      name: standing_2
       rect:
         serializedVersion: 2
-        x: 118
+        x: 180
         y: 0
-        width: 63
-        height: 57
+        width: 90
+        height: 89
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1ef95bd6a74888247b6e7f57b30d4bc0
-      internalID: -1049922345
+      spriteID: ea6d183ebad9102408bab83709e5a3d7
+      internalID: 55169173
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: swimming_3
+      name: standing_3
       rect:
         serializedVersion: 2
-        x: 178
+        x: 270
         y: 0
-        width: 63
-        height: 57
+        width: 90
+        height: 89
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,20 +182,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d077177680ebaf34d9fb9dcd7d6f2bc5
-      internalID: -1676733145
+      spriteID: e082a084d0c67854b82aa3f74d2563a3
+      internalID: 678571312
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: swimming_4
+      name: standing_4
       rect:
         serializedVersion: 2
-        x: 238
+        x: 360
         y: 0
-        width: 63
-        height: 57
+        width: 90
+        height: 89
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,20 +203,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e3152b8ed1bb1847b13cb55a3f18d6d
-      internalID: -350664478
+      spriteID: dddf227d0caec4e40a74d39a77b4e929
+      internalID: -824046154
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: swimming_5
+      name: standing_5
       rect:
         serializedVersion: 2
-        x: 301
+        x: 451
         y: 0
-        width: 61
-        height: 57
+        width: 90
+        height: 89
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,29 +224,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c9b7bb123618aaa4db99af4247717198
-      internalID: 1964883218
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: swimming_6
-      rect:
-        serializedVersion: 2
-        x: 61
-        y: 0
-        width: 63
-        height: 57
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 78be4a0f3bd7049429035cc5c2276f91
-      internalID: -1088124482
+      spriteID: e913f9554afe0434f9261e8da61edebc
+      internalID: 905673867
       vertices: []
       indices: 
       edges: []
@@ -262,13 +241,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      swimming_2: -1049922345
-      swimming_4: -350664478
-      swimming_3: -1676733145
-      swimming_6: -1088124482
-      swimming_5: 1964883218
-      swimming_0: 1892860684
-      swimming_1: -1688463750
+      standing_1: -1314508604
+      standing_5: 905673867
+      standing_4: -824046154
+      standing_0: 721636038
+      standing_2: 55169173
+      standing_3: 678571312
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
