@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 52f1197c15a25c448aabfd3bb3886997
+guid: f94135fe7c98b96448427e2c1f888457
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -49,7 +49,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 0
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -105,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: walking_0
+      name: jumping_0
       rect:
         serializedVersion: 2
         x: 0
@@ -119,17 +119,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc6618a30bdbe9d4f86580af0cbb7972
-      internalID: 771445655
+      spriteID: dc1f8ab16877a0e46a074b460a195078
+      internalID: -70467871
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walking_1
+      name: jumping_1
       rect:
         serializedVersion: 2
-        x: 63
+        x: 62
         y: 0
         width: 63
         height: 59
@@ -140,17 +140,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8dc8349ff23d99a40b8b2218a0da01a0
-      internalID: 140114069
+      spriteID: cb95d9bb1b8f9c84ebb94c7f65dd054c
+      internalID: -334991315
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walking_2
+      name: jumping_2
       rect:
         serializedVersion: 2
-        x: 128
+        x: 126
         y: 0
         width: 63
         height: 59
@@ -161,17 +161,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b0d7ca4fe7987194c98e1cfa016c3efe
-      internalID: 387054013
+      spriteID: 5d86602051fe6bc4996da2f7d6b59f36
+      internalID: 48343268
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walking_3
+      name: jumping_3
       rect:
         serializedVersion: 2
-        x: 192
+        x: 190
         y: 0
         width: 63
         height: 59
@@ -182,17 +182,38 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 86aeabde4e1b37c4b98934fec7a7422b
-      internalID: -454450681
+      spriteID: b9ae0cec28568ea43bd45a4dcbf5abd6
+      internalID: -1737567170
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walking_4
+      name: jumping_4
       rect:
         serializedVersion: 2
-        x: 246
+        x: 253
+        y: 0
+        width: 60
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8912fccc9487b974ab066a453b8f93d4
+      internalID: -493894808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jumping_5
+      rect:
+        serializedVersion: 2
+        x: 311
         y: 0
         width: 63
         height: 59
@@ -203,17 +224,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1bf98199db406424aa9e6489e424162a
-      internalID: 1454773548
+      spriteID: 9d89ab1aad10d034baa723a4bb36b8d8
+      internalID: -2022594269
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walking_5
+      name: jumping_6
       rect:
         serializedVersion: 2
-        x: 310
+        x: 373
         y: 0
         width: 63
         height: 59
@@ -224,17 +245,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eee4a91097d3f2241bcd38407bc46e72
-      internalID: -213315363
+      spriteID: bfca8a51eb441aa4aba946994dcec2e7
+      internalID: -1250197985
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walking_6
+      name: jumping_7
       rect:
         serializedVersion: 2
-        x: 367
+        x: 429
         y: 0
         width: 63
         height: 59
@@ -245,19 +266,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 937f32e56d70ca24ba49f2ee0012bb49
-      internalID: 1056528140
+      spriteID: 36b6de549e048994484a89de54e88f42
+      internalID: 17078191
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walking_7
+      name: jumping_8
       rect:
         serializedVersion: 2
-        x: 428
+        x: 493
         y: 0
-        width: 63
+        width: 62
         height: 59
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -266,29 +287,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5444f1e475daac945b911c9fb48c4c9b
-      internalID: -2112355804
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: walking_8
-      rect:
-        serializedVersion: 2
-        x: 491
-        y: 1
-        width: 63
-        height: 58
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 55470bb02aa6ad8499eaac161cc7dc5d
-      internalID: -1502884681
+      spriteID: ec397e8afe311874384da1d0a380e8f8
+      internalID: 717688116
       vertices: []
       indices: 
       edges: []
@@ -304,15 +304,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      walking_8: -1502884681
-      walking_5: -213315363
-      walking_2: 387054013
-      walking_1: 140114069
-      walking_3: -454450681
-      walking_0: 771445655
-      walking_6: 1056528140
-      walking_4: 1454773548
-      walking_7: -2112355804
+      jumping_8: 717688116
+      jumping_5: -2022594269
+      jumping_7: 17078191
+      jumping_6: -1250197985
+      jumping_0: -70467871
+      jumping_3: -1737567170
+      jumping_2: 48343268
+      jumping_1: -334991315
+      jumping_4: -493894808
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

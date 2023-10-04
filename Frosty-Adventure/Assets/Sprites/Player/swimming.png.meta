@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 52f1197c15a25c448aabfd3bb3886997
+guid: a4aeb6eee458ce04a9959c0fcbd686f1
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -49,7 +49,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 0
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: walking_0
+      name: swimming_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 63
-        height: 59
+        height: 57
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc6618a30bdbe9d4f86580af0cbb7972
-      internalID: 771445655
+      spriteID: 522460149e30b6d4dab33c42d03f5065
+      internalID: 1892860684
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walking_1
+      name: swimming_1
       rect:
         serializedVersion: 2
-        x: 63
+        x: 0
         y: 0
         width: 63
-        height: 59
+        height: 57
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,20 +140,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8dc8349ff23d99a40b8b2218a0da01a0
-      internalID: 140114069
+      spriteID: 4488a86a24c7230429ae45ae644d2906
+      internalID: -1688463750
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walking_2
+      name: swimming_2
       rect:
         serializedVersion: 2
-        x: 128
+        x: 118
         y: 0
         width: 63
-        height: 59
+        height: 57
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b0d7ca4fe7987194c98e1cfa016c3efe
-      internalID: 387054013
+      spriteID: 1ef95bd6a74888247b6e7f57b30d4bc0
+      internalID: -1049922345
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walking_3
+      name: swimming_3
       rect:
         serializedVersion: 2
-        x: 192
+        x: 178
         y: 0
         width: 63
-        height: 59
+        height: 57
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,20 +182,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 86aeabde4e1b37c4b98934fec7a7422b
-      internalID: -454450681
+      spriteID: d077177680ebaf34d9fb9dcd7d6f2bc5
+      internalID: -1676733145
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walking_4
+      name: swimming_4
       rect:
         serializedVersion: 2
-        x: 246
+        x: 238
         y: 0
         width: 63
-        height: 59
+        height: 57
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,92 +203,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1bf98199db406424aa9e6489e424162a
-      internalID: 1454773548
+      spriteID: 9e3152b8ed1bb1847b13cb55a3f18d6d
+      internalID: -350664478
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walking_5
+      name: swimming_5
       rect:
         serializedVersion: 2
-        x: 310
+        x: 301
+        y: 0
+        width: 61
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9b7bb123618aaa4db99af4247717198
+      internalID: 1964883218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: swimming_6
+      rect:
+        serializedVersion: 2
+        x: 61
         y: 0
         width: 63
-        height: 59
+        height: 57
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eee4a91097d3f2241bcd38407bc46e72
-      internalID: -213315363
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: walking_6
-      rect:
-        serializedVersion: 2
-        x: 367
-        y: 0
-        width: 63
-        height: 59
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 937f32e56d70ca24ba49f2ee0012bb49
-      internalID: 1056528140
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: walking_7
-      rect:
-        serializedVersion: 2
-        x: 428
-        y: 0
-        width: 63
-        height: 59
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5444f1e475daac945b911c9fb48c4c9b
-      internalID: -2112355804
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: walking_8
-      rect:
-        serializedVersion: 2
-        x: 491
-        y: 1
-        width: 63
-        height: 58
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 55470bb02aa6ad8499eaac161cc7dc5d
-      internalID: -1502884681
+      spriteID: 78be4a0f3bd7049429035cc5c2276f91
+      internalID: -1088124482
       vertices: []
       indices: 
       edges: []
@@ -304,15 +262,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      walking_8: -1502884681
-      walking_5: -213315363
-      walking_2: 387054013
-      walking_1: 140114069
-      walking_3: -454450681
-      walking_0: 771445655
-      walking_6: 1056528140
-      walking_4: 1454773548
-      walking_7: -2112355804
+      swimming_2: -1049922345
+      swimming_4: -350664478
+      swimming_3: -1676733145
+      swimming_6: -1088124482
+      swimming_5: 1964883218
+      swimming_0: 1892860684
+      swimming_1: -1688463750
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
