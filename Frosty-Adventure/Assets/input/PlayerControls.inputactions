@@ -1,0 +1,46 @@
+{
+    "name": "PlayerControls",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "7c2c8003-b5e6-4106-a303-361a75c0d041",
+            "actions": [
+                {
+                    "name": "PanelsOpenClose",
+                    "type": "Button",
+                    "id": "731c6eb9-df6b-4c76-bb6f-f17f9c175432",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "96e03f2d-f19e-4cea-a52c-22095e2edf79",
+                    "path": "<Mouse>/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "mouseClick",
+                    "action": "PanelsOpenClose",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "mouseClick",
+            "bindingGroup": "mouseClick",
+            "devices": [
+                {
+                    "devicePath": "<Mouse>",
+                    "isOptional": true,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}
