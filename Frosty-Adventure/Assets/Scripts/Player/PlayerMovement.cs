@@ -9,38 +9,38 @@ public class PlayerMovement : MonoBehaviour
     public Transform rightWall;
     public Transform bottomWall;
 
-    private Rigidbody2D rb;
-    private float moveSpeed = 100.0f;
+    
+    
+    private float moveSpeed = 10.0f;
     private Vector2 moveDirection = Vector2.zero;
 
-    
+    private Rigidbody2D rb;
+   // private bool grounded;
+    //public float gravityScale = 1.0f;
+    //public LayerMask groundLayer;
+   // private Movement.PlayerActions playerActions;
 
-    InputChannel inputChannel;
+    private InputChannel inputChannel;
 
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
+      //  rb.gravityScale = 0;
+
+       // playerActions = new Movement.PlayerActions(new Movement());
+      //  playerActions.Enable();
+
         AddListeners();
     }    
 
 
     void Update()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
-
-        Vector3 newPosition = transform.position + new Vector3(horizontalInput, verticalInput, 0) * moveSpeed * Time.deltaTime;
-
-        newPosition.x = Mathf.Clamp(newPosition.x, leftWall.position.x + 0.5f, rightWall.position.x - 0.5f);
-        newPosition.y = Mathf.Clamp(newPosition.y, bottomWall.position.y + 0.5f, Mathf.Infinity);
-
-        transform.position = newPosition;
+        
     }
 
 
-    private void FixedUpdate()
-    { 
-    
-    }
+
 
     private void AddListeners()
     {
@@ -66,6 +66,6 @@ public class PlayerMovement : MonoBehaviour
         Vector2 newPosition = (Vector2)transform.position + moveDirection * moveSpeed * Time.fixedDeltaTime;
         transform.position = newPosition;
 
-        rb.velocity = moveDirection * 100;
+        rb.velocity = moveDirection * 5;
     }
 }

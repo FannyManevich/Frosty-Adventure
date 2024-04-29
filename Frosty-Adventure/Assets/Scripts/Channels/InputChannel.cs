@@ -6,8 +6,8 @@ using static Movement;
 [CreateAssetMenu(fileName ="Input Channel", menuName = "Channels/Input Channel", order = 0 )]
 public class InputChannel : ScriptableObject, IPlayerActions
 {
-    Movement move;
-   
+    Movement move, attack;
+
     public event Action<Vector2> MoveEvent;
     
 
@@ -33,7 +33,10 @@ public class InputChannel : ScriptableObject, IPlayerActions
         Vector2 moveValue = context.ReadValue<Vector2>();
         MoveEvent?.Invoke(moveValue);
     }
+    public void OnAttack(InputAction.CallbackContext context)
+    {
 
+    }
     public void EnablePlayer()
     {
         move.Player.Enable();
