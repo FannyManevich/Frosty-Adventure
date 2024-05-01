@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1957521117942340757}
   - component: {fileID: 2272301317273131262}
   m_Layer: 0
-  m_Name: GhostPlayer_0
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 2674068237909167030}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -449.11, y: 846.2, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 0}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 273449531914722933}
@@ -70,10 +70,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -1344106462, guid: bd83cdb33c8c13a4697b3820004486e1, type: 3}
+  m_SortingLayerID: -1671242053
+  m_SortingLayer: -1
+  m_SortingOrder: 1
+  m_Sprite: {fileID: -811828608, guid: ccf937df3eefa824fa30aa33f959aeab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -184,7 +184,7 @@ GameObject:
   m_Component:
   - component: {fileID: 350939610}
   - component: {fileID: 350939609}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Sky
   m_TagString: Background
   m_Icon: {fileID: 0}
@@ -232,7 +232,7 @@ SpriteRenderer:
   m_SortingLayerID: -229630345
   m_SortingLayer: -3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c8a91fc03846dc741a8d586ef55756f1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 39cb28a77f4d36f4385d74a638971c34, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -260,8 +260,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10.58, y: 0.17}
-  m_SizeDelta: {x: 19.2, y: 10.8}
+  m_AnchoredPosition: {x: -10.7672, y: 4.3492}
+  m_SizeDelta: {x: 20.3652, y: 19.6123}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &411675809
 GameObject:
@@ -2178,8 +2178,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -28.39, y: -0.1}
-  m_SizeDelta: {x: 100, y: 500}
+  m_AnchoredPosition: {x: -26.81, y: -0.89}
+  m_SizeDelta: {x: 15.6711, y: 3.8762}
   m_Pivot: {x: 0, y: 0}
 --- !u!1 &534550645
 GameObject:
@@ -2191,7 +2191,7 @@ GameObject:
   m_Component:
   - component: {fileID: 534550646}
   - component: {fileID: 534550647}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Sand
   m_TagString: Background
   m_Icon: {fileID: 0}
@@ -2206,8 +2206,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534550645}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.58, y: 0.17, z: 0}
-  m_LocalScale: {x: 4.030291, y: 1.0348024, z: 0}
+  m_LocalPosition: {x: -10.7641, y: 0.1635, z: 0}
+  m_LocalScale: {x: 4.0520773, y: 1.0542394, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1441161139}
@@ -2688,6 +2688,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1285308455}
   - component: {fileID: 1285308456}
+  - component: {fileID: 1285308457}
   m_Layer: 0
   m_Name: Mummy2
   m_TagString: Untagged
@@ -2762,6 +2763,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1285308457
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1285308454}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7ebc6e0c01ede254d95017c83bf38690, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &1305838562
 GameObject:
   m_ObjectHideFlags: 0
@@ -2817,9 +2838,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1441161139}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Background
-  m_TagString: Background
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

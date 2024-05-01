@@ -2488,9 +2488,9 @@ Tilemap:
   - m_RefCount: 0
     m_Data: {fileID: 0}
   - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: c985d2f526a890a4fa3225faa29ab67e, type: 2}
+    m_Data: {fileID: 11400000, guid: d9d6c76a944b5fc48b340d031315ab32, type: 2}
   - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: c3579015b08644c40ab6dbfe2cdb26e8, type: 2}
+    m_Data: {fileID: 11400000, guid: 0874c10769fb3774fae4bb2c419cb33b, type: 2}
   - m_RefCount: 8
     m_Data: {fileID: 11400000, guid: 29edb106ebd44f54ea2dc43489eccdba, type: 2}
   - m_RefCount: 7
@@ -2500,13 +2500,13 @@ Tilemap:
   - m_RefCount: 3
     m_Data: {fileID: 11400000, guid: ccb672b28c74ce94e9d406a032460b81, type: 2}
   - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: dd2071db989eac74284af79ded930252, type: 2}
+    m_Data: {fileID: 11400000, guid: 32c71d427a4356b4db15adb14bfef145, type: 2}
   - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: ef77f4bb49405e1449335d295cb017a5, type: 2}
+    m_Data: {fileID: 11400000, guid: c1179c5b42c60ac49ada0df8cd6685dd, type: 2}
   - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: ad0f3a99a6731994a968f3111637261d, type: 2}
+    m_Data: {fileID: 11400000, guid: 1868224034b11e741958177576975c49, type: 2}
   - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: e40f3c5d7f9c5d74c950b960f0e46fee, type: 2}
+    m_Data: {fileID: 11400000, guid: dbbbadf93b5606c4c95f9000d959e40e, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 17
     m_Data: {fileID: 21300000, guid: a01a434b38adbd946a84c844522eb1cd, type: 3}
@@ -2595,15 +2595,17 @@ Tilemap:
   - m_RefCount: 45
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   - m_RefCount: 0
-    m_Data: {r: NaN, g: NaN, b: NaN, a: NaN}
+    m_Data: {r: 4.7162e-41, g: 4.7162e-41, b: 4.7162e-41, a: 4.7162e-41}
   - m_RefCount: 0
-    m_Data: {r: NaN, g: NaN, b: NaN, a: NaN}
+    m_Data: {r: 4.7162e-41, g: 4.7162e-41, b: 4.7162e-41, a: 4.7162e-41}
   - m_RefCount: 0
-    m_Data: {r: NaN, g: NaN, b: NaN, a: NaN}
+    m_Data: {r: 4.7162e-41, g: 4.7162e-41, b: 4.7162e-41, a: 4.7162e-41}
   - m_RefCount: 0
-    m_Data: {r: NaN, g: NaN, b: NaN, a: NaN}
+    m_Data: {r: 4.7162e-41, g: 4.7162e-41, b: 4.7162e-41, a: 4.7162e-41}
   - m_RefCount: 0
-    m_Data: {r: NaN, g: NaN, b: NaN, a: NaN}
+    m_Data: {r: 4.7162e-41, g: 4.7162e-41, b: 4.7162e-41, a: 4.7162e-41}
+  - m_RefCount: 0
+    m_Data: {r: 4.7162e-41, g: 4.7162e-41, b: 4.7162e-41, a: 4.7162e-41}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
