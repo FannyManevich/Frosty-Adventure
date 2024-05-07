@@ -4068,6 +4068,7 @@ GameObject:
   - component: {fileID: 1878924903}
   - component: {fileID: 1878924902}
   - component: {fileID: 1878924901}
+  - component: {fileID: 1878924904}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4120,7 +4121,7 @@ Camera:
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
-  m_AllowMSAA: 1
+  m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
@@ -4146,6 +4147,19 @@ RectTransform:
   m_AnchoredPosition: {x: -37.050003, y: -5.5700073}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1878924904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878924900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff04e0dca59af484f99f99bcb0443735, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thingToFollow: {fileID: 839065541}
 --- !u!1001 &1883841250
 PrefabInstance:
   m_ObjectHideFlags: 0
