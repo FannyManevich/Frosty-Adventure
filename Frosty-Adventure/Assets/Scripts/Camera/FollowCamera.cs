@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class FollowCamera : MonoBehaviour
 {
-	[SerializeField] GameObject thingToFollow;
-	// this is the target that the camera will follow
+	public float FollowSpeed = 2f;
+    public Transform target;
 
-    void LateUpdate()
+    void Update()
     {
-        transform.position = thingToFollow.transform.position + new Vector3(0, 0, -10);
-    }
+        Vector3 newPos= new Vector3(target.position.x, target.position.y, -10f);
+        transform.position = Vector3.Slerp(transform.position, newPos, FollowSpeed*Time.deltaTime);
+    }
 }
