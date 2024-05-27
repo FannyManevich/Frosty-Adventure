@@ -57,7 +57,6 @@ public class InputChannel : ScriptableObject, IPlayerActions
     public void EnablePlayer()
     {
         move.Player.Enable();
-
     }
 
     public void EnableMenu()

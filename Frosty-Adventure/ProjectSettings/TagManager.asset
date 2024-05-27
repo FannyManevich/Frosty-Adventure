@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Background
   layers:
   - Default
   - TransparentFX
@@ -11,8 +12,8 @@ TagManager:
   - Background
   - Water
   - UI
-  - 
-  - 
+  - Tilemap
+  - Player
   - 
   - 
   - 
@@ -43,6 +44,9 @@ TagManager:
     locked: 0
   - name: Platform
     uniqueID: 1870655535
+    locked: 0
+  - name: UI
+    uniqueID: 678478493
     locked: 0
   - name: Player
     uniqueID: 2623725243

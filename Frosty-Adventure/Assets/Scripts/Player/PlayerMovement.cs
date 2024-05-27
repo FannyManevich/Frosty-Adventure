@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform bottomWall;
     public Transform topWall;
 
-    private float moveSpeed = 10.0f;
+    private float moveSpeed = 5.0f;
     private Vector2 moveDirection = Vector2.zero;
 
     private Rigidbody2D rb;
@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.gravityScale = 5;
+        rb.gravityScale = 10;
 
         AddListeners();
     }    
@@ -51,11 +51,12 @@ public class PlayerMovement : MonoBehaviour
 
         rb.velocity = moveDirection * 10;
     }
-    void Update()
+    void FixedUpdate()
     {
         Vector3 clampedPosition = transform.position;
         clampedPosition.x = Mathf.Clamp(clampedPosition.x, leftWall.position.x + 0.5f, rightWall.position.x - 0.5f);
         clampedPosition.y = Mathf.Clamp(clampedPosition.y, bottomWall.position.y + 0.5f, topWall.position.y - 0.5f);
         transform.position = clampedPosition;
+        
     }
 }

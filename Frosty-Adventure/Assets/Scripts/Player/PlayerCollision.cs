@@ -12,7 +12,7 @@ public class PlayerCollisions : MonoBehaviour
     //   HealthManager.health--;
     // if (HealthManager.health <= 0)
     //  {
-    PlayerManager.isGameOver = true;
+    UIManager.isGameOver = true;
     gameObject.SetActive(false);
     }
     //  else
