@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce = 5f;
     public float moveSpeed = 10.0f;
     public float smallDownwardForce = 2f;
+
     private Rigidbody2D rb;
     private InputChannel inputChannel;
 
