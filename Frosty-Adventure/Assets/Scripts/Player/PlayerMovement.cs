@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.gravityScale = 3;
+        rb.gravityScale = 1;
         inputChannel = FindObjectOfType<BeaconSO>().inputChannel;
 
         AddListeners();
