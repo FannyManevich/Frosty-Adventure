@@ -100,6 +100,14 @@ MonoBehaviour:
   rightWall: {fileID: 0}
   bottomWall: {fileID: 0}
   topWall: {fileID: 0}
+  groundCheckRadius: 0.2
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  groundCheck: {fileID: 0}
+  jumpForce: 5
+  moveSpeed: 10
+  smallDownwardForce: 2
 --- !u!114 &7045588422767942008
 MonoBehaviour:
   m_ObjectHideFlags: 0
