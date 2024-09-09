@@ -25,6 +25,7 @@ public class AnimationsTransitions : MonoBehaviour
 
     private void Update()
     {
+        anim.SetBool("IsStanding", state == MovementState.standing);
         anim.SetBool("IsWalking", state == MovementState.walking);
         anim.SetBool("IsJumping", state == MovementState.jumping);
         anim.SetBool("IsSwimming", state == MovementState.swimming);
