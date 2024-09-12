@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 4518619624032132968}
   - component: {fileID: 2256611308132268158}
   - component: {fileID: 6728763652631572178}
-  - component: {fileID: 7045588422767942008}
   - component: {fileID: 1068646622377800121}
   - component: {fileID: 2564629778397120405}
+  - component: {fileID: 8515268024545916422}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -108,18 +108,6 @@ MonoBehaviour:
   jumpForce: 5
   moveSpeed: 10
   smallDownwardForce: 2
---- !u!114 &7045588422767942008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5357483133094292816}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a391fdd262a0f642b1e733658236645, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1068646622377800121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,3 +140,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &8515268024545916422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5357483133094292816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61514cc7ba31b864aa2b22c8175b2163, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

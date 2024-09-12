@@ -1,11 +1,16 @@
-
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerCollisions : MonoBehaviour
+public class CollisionDetection : MonoBehaviour
 {
-    [SerializeField] private Text WaterCollected;
+    public Text WaterText;
     private int countBottles;
+    public Transform leftWall;
+    public Transform rightWall;
+    public Transform bottomWall;
+    public Transform topWall;
 
     public void Start()
     {
@@ -29,33 +34,13 @@ public class PlayerCollisions : MonoBehaviour
     private void UpdateThirstText()
     {
         Debug.Log("Updating water counter: " + countBottles);
-        if (WaterCollected != null)
+        if (WaterText != null)
         {
-            WaterCollected.text = "Water collected : " + countBottles;
+            WaterText.text = "Water collected : " + countBottles;
         }
         else
         {
             Debug.LogError("WaterCollected Text is not assigned in the Inspector!");
         }
     }
-
- //   private void OnCollisionEnter2D(Collision2D collision)
-  //  {
-      
-      //   if (collision.transform.tag == "Enemy")
-         //{
-          // HealthManager.health--;
-           // if (HealthManager.health <= 0)
-         //   {
-               // UIManager.isGameOver = true;
-            //    gameObject.SetActive(false);
-          //  }
-           // else
-          //  {
-             //  StartCoroutine(GetHurt());
-           // }
-      //   }
-   // }
-
-
 }
