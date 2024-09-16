@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Background
   - Collectible
+  - Enemy
+  - Spike
   layers:
   - Default
   - TransparentFX

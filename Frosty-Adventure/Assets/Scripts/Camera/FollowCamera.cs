@@ -21,7 +21,7 @@ public class FollowCamera : MonoBehaviour
     Vector3 ClampTargetPosition(Vector3 targetPos)
     {
         targetPos.x = Mathf.Clamp(targetPos.x, leftWall.position.x + 0f, rightWall.position.x - 0f);
-        targetPos.y = Mathf.Clamp(targetPos.y, bottomWall.position.y + 4f, topWall.position.y - 5f);
+        targetPos.y = Mathf.Clamp(targetPos.y, bottomWall.position.y + 6f, topWall.position.y - 5f);
         return targetPos;
     }
 }

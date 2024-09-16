@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     public float jumpForce = 5f;
     public float moveSpeed = 10.0f;
-    public float smallDownwardForce = 2f;
+    public float smallDownwardForce = 0.2f;
 
     private Rigidbody2D rb;
     private InputChannel inputChannel;
@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.gravityScale = 9f;
+        rb.gravityScale = 1f;
         inputChannel = FindObjectOfType<BeaconSO>().inputChannel;
 
         AddListeners();
