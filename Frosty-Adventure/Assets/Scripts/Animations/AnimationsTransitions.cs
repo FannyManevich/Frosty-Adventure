@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class AnimationsTransitions : MonoBehaviour
 { 
-    private enum MovementState {standing,walking,jumping,swimming}
+    private enum MovementState {standing, walking, jumping, swimming}
     private Rigidbody2D rb;
     private Animator anim;
     private MovementState state;
@@ -16,19 +16,20 @@ public class AnimationsTransitions : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         anim = GetComponent<Animator>();
-        if(anim is null)
+        if (anim == null)
         {
-            Debug.LogError("Animator is null, please assign it");
+            Debug.LogError("Animator is null, please assign it to the Player object.");
         }
     }
 
-
     private void Update()
     {
-       // anim.SetBool("IsStanding", state == MovementState.standing);
-        anim.SetBool("IsWalking", state == MovementState.walking);
-        anim.SetBool("IsJumping", state == MovementState.jumping);
-        anim.SetBool("IsSwimming", state == MovementState.swimming);
+        if (anim != null) // Check to avoid null reference
+        {
+            anim.SetBool("IsWalking", state == MovementState.walking);
+            anim.SetBool("IsJumping", state == MovementState.jumping);
+            anim.SetBool("IsSwimming", state == MovementState.swimming);
+        }
     }
 
     private void OnMovementInputPerformed(InputAction.CallbackContext context)
@@ -45,10 +46,8 @@ public class AnimationsTransitions : MonoBehaviour
         }
     }
 
-  
     private void OnMovementInputCanceled(InputAction.CallbackContext context)
     {
         state = MovementState.standing;
     }
-
 }
