@@ -1452,12 +1452,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '4 leveles.
+  m_text: 'Walkking - right and left  arrows.
 
-    Walk right and left with the arrows
+    Jump - up arrow.
 
-    Shoot with the
-    space
+    Shoot -
+    space.
 
     and... be brave!'
   m_isRightToLeft: 0

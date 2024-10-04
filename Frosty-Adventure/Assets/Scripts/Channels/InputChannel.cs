@@ -26,7 +26,6 @@ public class InputChannel : ScriptableObject, IPlayerActions
             attack.Player.SetCallbacks(this);
             attack.Enable();
         }
-
     }
 
     private void OnDisable()
@@ -42,10 +41,10 @@ public class InputChannel : ScriptableObject, IPlayerActions
     }
     public void OnAttack(InputAction.CallbackContext context)
     {
-         if (context.phase == InputActionPhase.Performed)
-         {
-              AttackEvent?.Invoke();
-              Debug.Log("Attacking Detected");
+        if (context.phase == InputActionPhase.Performed)
+        {
+             AttackEvent?.Invoke();
+             Debug.Log("Attacking Detected");
         }
         if (context.phase == InputActionPhase.Canceled)
         {
@@ -54,6 +53,7 @@ public class InputChannel : ScriptableObject, IPlayerActions
 
         }
     }
+   
     public void EnablePlayer()
     {
         move.Player.Enable();
@@ -63,7 +63,4 @@ public class InputChannel : ScriptableObject, IPlayerActions
     {
         move.Player.Disable();
     }
-
-
-
 }

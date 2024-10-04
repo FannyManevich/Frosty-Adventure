@@ -5,14 +5,17 @@ TagManager:
   serializedVersion: 2
   tags:
   - Background
-  - Collectible
   - Enemy
   - Spike
+  - Water
+  - Score10
+  - Score20
+  - Score100
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
   - 
