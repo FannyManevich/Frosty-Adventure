@@ -6,31 +6,29 @@ using static Movement;
 [CreateAssetMenu(fileName ="Input Channel", menuName = "Channels/Input Channel", order = 0 )]
 public class InputChannel : ScriptableObject, IPlayerActions
 {
-    Movement move, attack;
+    Movement inputActions;
 
     public event Action<Vector2> MoveEvent;
+    public event Action JumpEvent;
+    public event Action JumpCanceledEvent;
     public event Action AttackEvent;
     public event Action AttackCanceledEvent;
+    public event Action ClickEvent;
+    public event Action ClickCanceledEvent;
 
     private void OnEnable()
     {
-        if (move == null)
+        if (inputActions == null)
         {
-            move = new Movement();
-            move.Player.SetCallbacks(this);
-            move.Enable();
-        }
-        if (attack == null)
-        {
-            attack = new Movement();
-            attack.Player.SetCallbacks(this);
-            attack.Enable();
+            inputActions = new Movement();
+            inputActions.Player.SetCallbacks(this);
+            inputActions.Enable();
         }
     }
 
     private void OnDisable()
     {
-        move.Disable();
+        inputActions.Disable();
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -39,6 +37,7 @@ public class InputChannel : ScriptableObject, IPlayerActions
         Vector2 moveValue = context.ReadValue<Vector2>();
         MoveEvent?.Invoke(moveValue);
     }
+
     public void OnAttack(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Performed)
@@ -53,14 +52,38 @@ public class InputChannel : ScriptableObject, IPlayerActions
 
         }
     }
-   
+    public void OnClick(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed)
+        {
+  
+            Debug.Log("Click detected");
+        }
+    }
+
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed)
+        {
+            JumpEvent?.Invoke();
+            Debug.Log("Jump started");
+        }
+        else if (context.phase == InputActionPhase.Canceled)
+        {
+            JumpCanceledEvent?.Invoke();
+            Debug.Log("Jump canceled");
+        }
+    }
+
     public void EnablePlayer()
     {
-        move.Player.Enable();
+        inputActions.Player.Enable();
     }
 
     public void EnableMenu()
     {
-        move.Player.Disable();
+        inputActions.Player.Disable();
     }
-}
+
+    
+    }

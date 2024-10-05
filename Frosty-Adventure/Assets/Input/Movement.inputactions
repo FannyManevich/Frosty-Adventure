@@ -22,6 +22,24 @@
                     "processors": "AxisDeadzone",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "8139a955-f399-4fbf-b598-2f98919046ae",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Click",
+                    "type": "Button",
+                    "id": "e225f2c4-3063-437c-acc2-103b8fb901e2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -35,28 +53,6 @@
                     "action": "Move",
                     "isComposite": true,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "0afb94f4-0814-48b6-9b44-9f5d29fd05d6",
-                    "path": "<Keyboard>/upArrow",
-                    "interactions": "",
-                    "processors": "AxisDeadzone",
-                    "groups": "Keyboard",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "57382a9a-ad2b-4c2f-a4b1-bca8d484d07e",
-                    "path": "<Keyboard>/downArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
                 },
                 {
                     "name": "left",
@@ -90,28 +86,6 @@
                     "action": "Move",
                     "isComposite": true,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "a8634c5e-0749-415d-9056-8100fdc721a7",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "27522f1c-c8e9-448a-9fef-d5e4d2747001",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
                 },
                 {
                     "name": "left",
@@ -154,6 +128,39 @@
                     "processors": "",
                     "groups": "Keyboard",
                     "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4337f5d8-abad-4ef6-ada7-1c9b9247bb7f",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7965ba04-6313-4639-8e4d-132e02b7ae0c",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ba4f52ed-952a-4dc4-9b97-761fe5a40334",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Mouse",
+                    "action": "Click",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

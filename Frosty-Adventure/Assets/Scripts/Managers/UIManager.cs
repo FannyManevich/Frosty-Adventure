@@ -51,10 +51,10 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    //public void UpdateLives(int lives)
-   // {
-        //Debug.Log($"Lives remaining: {lives}");
-    //}
+    public void UpdateLives(int lives)
+    {
+        Debug.Log($"Lives remaining: {lives}");
+    }
 
     public void RestartGame()
     {

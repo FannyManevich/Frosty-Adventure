@@ -11,23 +11,23 @@ public class PlayerMovement : MonoBehaviour
     public Transform bottomWall;
     public Transform topWall;
 
-
     public float groundCheckRadius = 0.2f;
     public LayerMask groundLayer;
     private bool isGrounded;
     public Transform groundCheck;
     public float jumpForce = 5f;
-    public float moveSpeed = 10.0f;
+    public float moveSpeed = 100.0f;
     public float smallDownwardForce = 0.2f;
 
     private Rigidbody2D rb;
     private InputChannel inputChannel;
 
+    private bool isJumping;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 1f;
-        inputChannel = FindObjectOfType<BeaconSO>().inputChannel;
 
         AddListeners();
 
@@ -52,8 +52,17 @@ public class PlayerMovement : MonoBehaviour
             Debug.LogError("InputChannel not found in BeaconSO!");
             return;
         }
+        else
+        {
+            inputChannel.MoveEvent += HandleMovement;
+            inputChannel.JumpEvent += HandleJump;
+        }
+        if (isGrounded)
+        {
+            isJumping = false;
+        }
 
-        inputChannel.MoveEvent += HandleMovment;
+
     }
 
     private void FixedUpdate()
@@ -62,6 +71,13 @@ public class PlayerMovement : MonoBehaviour
         clampedPosition.x = Mathf.Clamp(clampedPosition.x, leftWall.position.x + 0.5f, rightWall.position.x - 0.5f);
         clampedPosition.y = Mathf.Clamp(clampedPosition.y, bottomWall.position.y + 0.5f, topWall.position.y - 0.5f);
         transform.position = clampedPosition;
+
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+
+        if (isGrounded)
+        {
+            isJumping = false;
+        }
     }
 
     private void MoveEvent(Vector2 moveDirection)
@@ -73,33 +89,45 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
+        if (isGrounded)
+        {
+            isJumping = false;
+        }
     }
 
-    public void HandleMovment(Vector2 moveDirection)
+    public void HandleMovement(Vector2 moveDirection)
     {
-        Vector2 newPosition = (Vector2)transform.position + moveDirection * moveSpeed * Time.fixedDeltaTime;
-        transform.position = newPosition;
-
         Vector2 moveForce = moveDirection * moveSpeed;
-        rb.AddForce(moveForce);
 
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (isGrounded)
         {
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-        }
+            rb.AddForce(moveForce);
+        }else if(!isGrounded){
+                rb.AddForce(new Vector2(0, -smallDownwardForce), ForceMode2D.Force);
+            }
     }
 
-    private void OnMove(Vector2 moveDirection)
+    private void HandleJump()
     {
-        if (isGrounded && moveDirection.y > 0f)
+        if (isGrounded)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-        }
-        else if (!isGrounded)
+            isJumping = true;
+            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            Debug.Log("Jump performed!");
+
+        }  
+    }
+
+    public bool IsJumping()
+    {
+        return isJumping;
+    }
+    private void OnDestroy()
+    {
+        if (inputChannel != null)
         {
-            rb.AddForce(new Vector2(0, -smallDownwardForce), ForceMode2D.Force);
+            inputChannel.MoveEvent -= HandleMovement;
+            inputChannel.JumpEvent -= HandleJump;
         }
-
-
     }
 }

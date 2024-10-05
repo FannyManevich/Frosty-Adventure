@@ -1,42 +1,90 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class AnimationsTransitions : MonoBehaviour
 { 
+    public Animator anim;
+
     private enum MovementState {standing, walking, jumping, swimming}
-    private Rigidbody2D rb;
-    private Animator anim;
-    private MovementState state;
+    private MovementState state = MovementState.standing;
+
+    public enum Level { Level1, Level2, Level3, Level4 }   
+    private Level currentLevel;
 
     void Start()
-    {
-        state = MovementState.standing;
-        rb = GetComponent<Rigidbody2D>();
-
+    {                
         anim = GetComponent<Animator>();
         if (anim == null)
         {
-            Debug.LogError("Animator is null, please assign it to the Player object.");
+            Debug.LogError("Animator is null, Assign it to the Player object.");
+        }
+
+        ActivateLevel(Level.Level1);
+    }
+    
+    public void HandleJump()
+    {
+        state = MovementState.jumping;
+        Debug.Log("Jumping detected!");
+        UpdateAnimatorState();
+    }
+
+    public void HandleJumpCancel()
+    {
+        state = MovementState.standing;
+        Debug.Log("Jump canceled, back to standing.");
+        UpdateAnimatorState();
+    }
+
+    public void ActivateLevel(Level level)
+    {
+        currentLevel = level;
+
+        for (int i = 0; i < anim.layerCount; i++)
+        {
+            anim.SetLayerWeight(i, 0f);
+        }
+
+        switch (currentLevel)
+        {
+            case Level.Level1:
+                anim.SetLayerWeight(0, 1f);
+                break;
+            case Level.Level2:
+                anim.SetLayerWeight(1, 1f);
+                break;
+            case Level.Level3:
+                anim.SetLayerWeight(2, 1f);
+                break;
+            case Level.Level4:
+                anim.SetLayerWeight(3, 1f);
+                break;
         }
     }
 
-    private void Update()
+    public void OnLevelComplete(int levelIndex)
     {
-        if (anim != null) // Check to avoid null reference
+        Level newLevel = (Level)levelIndex;
+        ActivateLevel(newLevel);
+    }
+
+    private void UpdateAnimatorState()
+    {
+        if (anim != null)
         {
+            anim.SetBool("IsStanding", state == MovementState.standing);
             anim.SetBool("IsWalking", state == MovementState.walking);
             anim.SetBool("IsJumping", state == MovementState.jumping);
             anim.SetBool("IsSwimming", state == MovementState.swimming);
-        }
+            
+        }      
     }
 
-    private void OnMovementInputPerformed(InputAction.CallbackContext context)
-    {
-        Vector2 inputDirection = context.ReadValue<Vector2>();
-
-        if (inputDirection != Vector2.zero)
+    public void HandleMovementAnimation(Vector2 movementInput)
+    {   
+        Debug.Log("Movement Input: " + movementInput);
+        if (state > 0)
         {
             state = MovementState.walking;
         }
@@ -44,10 +92,9 @@ public class AnimationsTransitions : MonoBehaviour
         {
             state = MovementState.standing;
         }
+        Debug.Log("Movement State: " + state);
+        UpdateAnimatorState();
     }
 
-    private void OnMovementInputCanceled(InputAction.CallbackContext context)
-    {
-        state = MovementState.standing;
-    }
+
 }

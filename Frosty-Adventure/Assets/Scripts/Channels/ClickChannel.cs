@@ -45,7 +45,7 @@ public class ClickChannel : ScriptableObject, IClickOptionActions
         if (context.phase == InputActionPhase.Performed)
         {
             clickEvent?.Invoke();
-            Debug.Log("Mouse Click Detected");
+            //Debug.Log("Mouse Click Detected");
         }
         if (context.phase == InputActionPhase.Canceled)
         {
