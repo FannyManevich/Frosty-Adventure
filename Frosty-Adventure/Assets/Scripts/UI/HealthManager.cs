@@ -13,12 +13,12 @@ public class HealthManager : MonoBehaviour
 
     void Start()
     {
-        //UImanager = FindObjectOfType<UIManager>();
+        UImanager = FindObjectOfType<UIManager>();
 
-        //if (UImanager == null)
-        //{
-         //   Debug.LogError("UIManager not found in the scene!");
-        //}
+        if (UImanager == null)
+        {
+            Debug.LogError("UIManager not found in the scene!");
+        }
 
         UpdateHealthUI();
     }
@@ -35,7 +35,7 @@ public class HealthManager : MonoBehaviour
         {
             GameOver();
         }    
-       // UpdateHealthUI();
+        UpdateHealthUI();
     }
 
     private void UpdateHealthUI()

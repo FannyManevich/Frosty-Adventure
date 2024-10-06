@@ -369,9 +369,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 11500000, guid: 2813a60fc9a60a04c86c34fa8a79263b, type: 3}
         m_TargetAssemblyTypeName: PlayerManager, Assembly-CSharp
-        m_MethodName: ResumeGame
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -431,7 +431,7 @@ GameObject:
   - component: {fileID: 38860441}
   m_Layer: 0
   m_Name: BlueBubble3
-  m_TagString: Untagged
+  m_TagString: Score10
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -544,41 +544,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5357483133094292816, guid: 427d9370ff77a0b4f83ff4c01a79a133, type: 3}
   m_PrefabInstance: {fileID: 886751877}
   m_PrefabAsset: {fileID: 0}
---- !u!111 &121521954
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 121521953}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 25d284af65a665746bc2f0259663d789, type: 2}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
---- !u!95 &121521955
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 121521953}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1c77c5505fd0a064f8f448b4b111dd80, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 1
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
 --- !u!212 &121521956
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -636,6 +601,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 273449531914722933, guid: 427d9370ff77a0b4f83ff4c01a79a133, type: 3}
   m_PrefabInstance: {fileID: 886751877}
   m_PrefabAsset: {fileID: 0}
+--- !u!111 &121521966
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121521953}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 25d284af65a665746bc2f0259663d789, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 25d284af65a665746bc2f0259663d789, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 1
 --- !u!1001 &149115315
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -813,7 +794,7 @@ GameObject:
   - component: {fileID: 215246267}
   m_Layer: 0
   m_Name: LightBlueBubble
-  m_TagString: Untagged
+  m_TagString: Score20
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1120,7 +1101,7 @@ GameObject:
   - component: {fileID: 257916446}
   m_Layer: 0
   m_Name: LightBlueBubble4
-  m_TagString: Untagged
+  m_TagString: Score20
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1262,7 +1243,7 @@ GameObject:
   - component: {fileID: 322393587}
   m_Layer: 0
   m_Name: Coin
-  m_TagString: Untagged
+  m_TagString: Collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1346,7 +1327,7 @@ GameObject:
   - component: {fileID: 326970432}
   m_Layer: 0
   m_Name: BlueBubble4
-  m_TagString: Untagged
+  m_TagString: Score10
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1614,7 +1595,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
-  hearts: []
+  hearts:
+  - {fileID: 540186207}
+  - {fileID: 1032480311}
+  - {fileID: 231414549}
   fullHeart: {fileID: 21300000, guid: 65f8658802ecb514a88650d436c1860f, type: 3}
   emptyHeart: {fileID: 21300000, guid: cbe3429cc55ad5f4d9a66af134148f49, type: 3}
 --- !u!1 &395501861
@@ -1695,7 +1679,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 395501861}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -40.22, y: 5.7, z: 1}
+  m_LocalPosition: {x: -44.53, y: 5.6, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1721,7 +1705,7 @@ MonoBehaviour:
   topWall: {fileID: 2089581949}
   FollowSpeed: 2
   target: {fileID: 121521960}
-  offset: {x: 0, y: 0, z: 0}
+  offset: {x: 11, y: 2.2, z: 0}
 --- !u!1 &416671052
 GameObject:
   m_ObjectHideFlags: 0
@@ -1943,7 +1927,7 @@ GameObject:
   - component: {fileID: 451198320}
   m_Layer: 0
   m_Name: LightBlueBubble8
-  m_TagString: Untagged
+  m_TagString: Score20
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2039,7 +2023,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 484890547}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2061,7 +2045,7 @@ GameObject:
   - component: {fileID: 496782423}
   m_Layer: 0
   m_Name: Coin
-  m_TagString: Untagged
+  m_TagString: Collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2145,7 +2129,7 @@ GameObject:
   - component: {fileID: 504461037}
   m_Layer: 0
   m_Name: LightBlueBubble6
-  m_TagString: Untagged
+  m_TagString: Score20
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2229,7 +2213,7 @@ GameObject:
   - component: {fileID: 537471973}
   m_Layer: 0
   m_Name: LightBlueBubble3
-  m_TagString: Untagged
+  m_TagString: Score20
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2389,7 +2373,7 @@ GameObject:
   - component: {fileID: 541803695}
   m_Layer: 0
   m_Name: LightBlueBubble1
-  m_TagString: Untagged
+  m_TagString: Score20
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2473,7 +2457,7 @@ GameObject:
   - component: {fileID: 564242316}
   m_Layer: 0
   m_Name: LightBlueBubble5
-  m_TagString: Untagged
+  m_TagString: Score20
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3992,7 +3976,7 @@ GameObject:
   - component: {fileID: 657375755}
   m_Layer: 0
   m_Name: Pearl
-  m_TagString: Untagged
+  m_TagString: Score100
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4306,9 +4290,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 11500000, guid: 564dd542c9bf78c479e3703808bb523e, type: 3}
         m_TargetAssemblyTypeName: PlayerManager, Assembly-CSharp
-        m_MethodName: ReplayLevel
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4368,7 +4352,7 @@ GameObject:
   - component: {fileID: 715931647}
   m_Layer: 0
   m_Name: Coin (1)
-  m_TagString: Untagged
+  m_TagString: Collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4451,7 +4435,7 @@ GameObject:
   - component: {fileID: 742523703}
   m_Layer: 0
   m_Name: Collectables
-  m_TagString: Collectible
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4832,6 +4816,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1068646622377800121, guid: 427d9370ff77a0b4f83ff4c01a79a133, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1068646622377800121, guid: 427d9370ff77a0b4f83ff4c01a79a133, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2256611308132268158, guid: 427d9370ff77a0b4f83ff4c01a79a133, type: 3}
       propertyPath: m_Size.x
       value: 0.5253817
@@ -4898,7 +4890,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6728763652631572178, guid: 427d9370ff77a0b4f83ff4c01a79a133, type: 3}
       propertyPath: moveSpeed
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6728763652631572178, guid: 427d9370ff77a0b4f83ff4c01a79a133, type: 3}
       propertyPath: rightWall
@@ -4913,14 +4905,23 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1416302992}
     - target: {fileID: 6728763652631572178, guid: 427d9370ff77a0b4f83ff4c01a79a133, type: 3}
+      propertyPath: groundCheckRadius
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6728763652631572178, guid: 427d9370ff77a0b4f83ff4c01a79a133, type: 3}
       propertyPath: groundLayer.m_Bits
       value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 6728763652631572178, guid: 427d9370ff77a0b4f83ff4c01a79a133, type: 3}
+      propertyPath: smallDownwardForce
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9157829098165898182, guid: 427d9370ff77a0b4f83ff4c01a79a133, type: 3}
       propertyPath: WaterText
       value: 
       objectReference: {fileID: 818651236}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2564629778397120405, guid: 427d9370ff77a0b4f83ff4c01a79a133, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 427d9370ff77a0b4f83ff4c01a79a133, type: 3}
 --- !u!1 &901429031
 GameObject:
@@ -4934,7 +4935,7 @@ GameObject:
   - component: {fileID: 901429033}
   m_Layer: 0
   m_Name: LightBlueBubble2
-  m_TagString: Untagged
+  m_TagString: Score20
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5745,7 +5746,7 @@ GameObject:
   - component: {fileID: 957105541}
   m_Layer: 0
   m_Name: BlueBubbleIcons
-  m_TagString: Untagged
+  m_TagString: Score10
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5831,7 +5832,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You Died!
+  m_text: Game Over
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6012,7 +6013,7 @@ GameObject:
   - component: {fileID: 1022228674}
   m_Layer: 0
   m_Name: BlueBubble
-  m_TagString: Untagged
+  m_TagString: Score10
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6172,7 +6173,7 @@ GameObject:
   - component: {fileID: 1059932452}
   m_Layer: 0
   m_Name: Coin (2)
-  m_TagString: Untagged
+  m_TagString: Collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6256,7 +6257,7 @@ GameObject:
   - component: {fileID: 1075386320}
   m_Layer: 0
   m_Name: BlueBubble5
-  m_TagString: Untagged
+  m_TagString: Score10
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6398,7 +6399,7 @@ GameObject:
   - component: {fileID: 1144258116}
   m_Layer: 0
   m_Name: Coin
-  m_TagString: Untagged
+  m_TagString: Collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6482,7 +6483,7 @@ GameObject:
   - component: {fileID: 1165630945}
   m_Layer: 0
   m_Name: Heart1
-  m_TagString: Untagged
+  m_TagString: Heart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6566,7 +6567,7 @@ GameObject:
   - component: {fileID: 1165850033}
   m_Layer: 0
   m_Name: LightBlueBubble7
-  m_TagString: Untagged
+  m_TagString: Score20
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6650,7 +6651,7 @@ GameObject:
   - component: {fileID: 1174822988}
   m_Layer: 0
   m_Name: Coin (1)
-  m_TagString: Untagged
+  m_TagString: Collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6734,7 +6735,7 @@ GameObject:
   - component: {fileID: 1175138533}
   m_Layer: 0
   m_Name: BlueBubble1
-  m_TagString: Untagged
+  m_TagString: Score10
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6818,7 +6819,7 @@ GameObject:
   - component: {fileID: 1193116112}
   m_Layer: 0
   m_Name: Heart3
-  m_TagString: Untagged
+  m_TagString: Heart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14042,7 +14043,7 @@ GameObject:
   - component: {fileID: 1262169487}
   m_Layer: 0
   m_Name: LightBlueBubble9
-  m_TagString: Untagged
+  m_TagString: Score20
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14337,7 +14338,7 @@ GameObject:
   - component: {fileID: 1311041936}
   m_Layer: 0
   m_Name: BlueBubble2
-  m_TagString: Untagged
+  m_TagString: Score10
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14421,7 +14422,7 @@ GameObject:
   - component: {fileID: 1327369578}
   m_Layer: 0
   m_Name: PurpleBubble
-  m_TagString: Untagged
+  m_TagString: Score100
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14718,7 +14719,7 @@ GameObject:
   - component: {fileID: 1351459763}
   m_Layer: 0
   m_Name: LightBlueBubbleIcons
-  m_TagString: Untagged
+  m_TagString: Score20
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14761,7 +14762,7 @@ GameObject:
   - component: {fileID: 1382015640}
   m_Layer: 0
   m_Name: Crown
-  m_TagString: Untagged
+  m_TagString: Score100
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14774,7 +14775,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1382015638}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.085705, y: -5.8752937, z: 70.64498}
+  m_LocalPosition: {x: -5.085705, y: -5.8752937, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14938,7 +14939,7 @@ GameObject:
   - component: {fileID: 1417877350}
   m_Layer: 0
   m_Name: BlueBubble6
-  m_TagString: Untagged
+  m_TagString: Score10
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15022,7 +15023,7 @@ GameObject:
   - component: {fileID: 1479529407}
   m_Layer: 0
   m_Name: Coin
-  m_TagString: Untagged
+  m_TagString: Collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15035,7 +15036,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1479529405}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.39, y: -0.31, z: 0.5}
+  m_LocalPosition: {x: -11.39, y: -0.31, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -15112,7 +15113,7 @@ GameObject:
   - component: {fileID: 1511617700}
   m_Layer: 0
   m_Name: BlueBubble7
-  m_TagString: Untagged
+  m_TagString: Score10
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15896,7 +15897,7 @@ GameObject:
   - component: {fileID: 1871384973}
   m_Layer: 0
   m_Name: HeartIcon
-  m_TagString: Untagged
+  m_TagString: Heart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15909,7 +15910,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1871384972}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -15929,7 +15930,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1904927911}
   - component: {fileID: 1904927913}
-  - component: {fileID: 1904927912}
+  - component: {fileID: 1904927914}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -15952,19 +15953,6 @@ Transform:
   m_Father: {fileID: 427289122}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1904927912
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1904927910}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 491ddd00216b85745b89be3419b0dd17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameOverScreen: {fileID: 1646932817}
 --- !u!114 &1904927913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15979,11 +15967,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 3
   hearts:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1032480311}
+  - {fileID: 1032480311}
+  - {fileID: 231414549}
   fullHeart: {fileID: 21300000, guid: 65f8658802ecb514a88650d436c1860f, type: 3}
   emptyHeart: {fileID: 21300000, guid: cbe3429cc55ad5f4d9a66af134148f49, type: 3}
+--- !u!114 &1904927914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904927910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 491ddd00216b85745b89be3419b0dd17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOverScreen: {fileID: 1646932817}
+  scoreText: {fileID: 818651236}
 --- !u!1 &1920662314
 GameObject:
   m_ObjectHideFlags: 0
@@ -16038,7 +16040,7 @@ MonoBehaviour:
   m_MoveAction: {fileID: -4781733714761411999, guid: 2c05295e06f3ea54d9bc2584722be3dd, type: 3}
   m_SubmitAction: {fileID: 0}
   m_CancelAction: {fileID: 0}
-  m_LeftClickAction: {fileID: 0}
+  m_LeftClickAction: {fileID: -4689838276839870797, guid: 2c05295e06f3ea54d9bc2584722be3dd, type: 3}
   m_MiddleClickAction: {fileID: 0}
   m_RightClickAction: {fileID: 0}
   m_ScrollWheelAction: {fileID: 0}
@@ -16074,7 +16076,7 @@ GameObject:
   - component: {fileID: 2058365614}
   m_Layer: 0
   m_Name: Heart2
-  m_TagString: Untagged
+  m_TagString: Heart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16282,7 +16284,7 @@ GameObject:
   - component: {fileID: 2120671443}
   m_Layer: 0
   m_Name: LightBlueBubble10
-  m_TagString: Untagged
+  m_TagString: Score20
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -30,11 +30,18 @@ public class AnimationsTransitions : MonoBehaviour
         UpdateAnimatorState();
     }
 
-    public void HandleJumpCancel()
+    public void HandleJumpCancel(Vector2 movementInput)
     {
-        state = MovementState.standing;
-        Debug.Log("Jump canceled, back to standing.");
-        UpdateAnimatorState();
+        if (Mathf.Abs(movementInput.x) > 0)
+        {
+            state = MovementState.walking;
+        }
+        else
+        {
+            state = MovementState.standing;
+        }
+        Debug.Log("Jump canceled, back to standing/walking.");
+        //UpdateAnimatorState();
     }
 
     public void ActivateLevel(Level level)
@@ -61,6 +68,9 @@ public class AnimationsTransitions : MonoBehaviour
                 anim.SetLayerWeight(3, 1f);
                 break;
         }
+        Debug.Log("Activating Level: " + level);
+
+        UpdateAnimatorState(currentLevel);
     }
 
     public void OnLevelComplete(int levelIndex)
@@ -68,7 +78,7 @@ public class AnimationsTransitions : MonoBehaviour
         Level newLevel = (Level)levelIndex;
         ActivateLevel(newLevel);
     }
-
+   
     private void UpdateAnimatorState()
     {
         if (anim != null)
@@ -77,24 +87,49 @@ public class AnimationsTransitions : MonoBehaviour
             anim.SetBool("IsWalking", state == MovementState.walking);
             anim.SetBool("IsJumping", state == MovementState.jumping);
             anim.SetBool("IsSwimming", state == MovementState.swimming);
+        }
+    }
+    private void UpdateAnimatorState(Level level)
+    {
+        if (anim != null)
+        {
+            if(level >= Level.Level1 && level < Level.Level3)
+            {
+                anim.SetBool("IsStanding", state == MovementState.standing);
+                anim.SetBool("IsWalking", state == MovementState.walking);
+                anim.SetBool("IsJumping", state == MovementState.jumping);
+            }
             
+            if( level == Level.Level3) 
+            {
+                anim.SetBool("IsSwimming", state == MovementState.swimming);
+            }          
         }      
     }
 
     public void HandleMovementAnimation(Vector2 movementInput)
     {   
         Debug.Log("Movement Input: " + movementInput);
-        if (state > 0)
+
+        if (Mathf.Abs(movementInput.x) > 0 )
         {
             state = MovementState.walking;
+            FlipSprite(movementInput);
         }
         else
         {
             state = MovementState.standing;
         }
+
         Debug.Log("Movement State: " + state);
         UpdateAnimatorState();
     }
 
-
+    private void FlipSprite(Vector2 movementInput)
+    {
+        if(!Mathf.Approximately(movementInput.x, 0.0f))
+        {
+            transform.localScale = new Vector3(Mathf.Sign(movementInput.x), 1.0f, 1.0f);
+        }
+    }
 }

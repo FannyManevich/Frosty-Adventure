@@ -1,12 +1,16 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using static PlayerController;
 
 public class UIManager : MonoBehaviour
 {
     public static bool isGameOver;
     public GameObject gameOverScreen;
     public Text scoreText;
+
+    public PlayerController UIinput;
 
     private void Awake()
     {
@@ -15,7 +19,7 @@ public class UIManager : MonoBehaviour
         if (gameOverScreen != null)
         {
             gameOverScreen.SetActive(false); 
-            Debug.Log("GameOverScreen is successfully assigned.");
+           // Debug.Log("GameOverScreen is successfully assigned.");
         }
         else
         {
@@ -56,10 +60,37 @@ public class UIManager : MonoBehaviour
         Debug.Log($"Lives remaining: {lives}");
     }
 
+    private void OnEnable()
+    {
+        if (UIinput == null)
+        {
+            UIinput = new PlayerController();
+            UIinput.Enable();
+            UIinput.UI.Click.performed += OnClick;
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (UIinput != null)
+        {
+            UIinput.UI.Click.performed -= OnClick;
+            UIinput.Disable();
+        }
+    }
+
+    public void OnClick(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed)
+        {
+            Debug.Log("Click detected");
+        }
+    }
     public void RestartGame()
     {
-        Time.timeScale = 1f; 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
+        Time.timeScale = 1f;
+        isGameOver = false;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void QuitGame()

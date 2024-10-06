@@ -1,26 +1,24 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static Movement;
+using static PlayerController;
 
 [CreateAssetMenu(fileName ="Input Channel", menuName = "Channels/Input Channel", order = 0 )]
 public class InputChannel : ScriptableObject, IPlayerActions
 {
-    Movement inputActions;
+    PlayerController inputActions;
 
     public event Action<Vector2> MoveEvent;
     public event Action JumpEvent;
     public event Action JumpCanceledEvent;
     public event Action AttackEvent;
     public event Action AttackCanceledEvent;
-    public event Action ClickEvent;
-    public event Action ClickCanceledEvent;
 
     private void OnEnable()
     {
         if (inputActions == null)
         {
-            inputActions = new Movement();
+            inputActions = new PlayerController();
             inputActions.Player.SetCallbacks(this);
             inputActions.Enable();
         }
@@ -44,21 +42,13 @@ public class InputChannel : ScriptableObject, IPlayerActions
         {
              AttackEvent?.Invoke();
              Debug.Log("Attacking Detected");
-        }
-        if (context.phase == InputActionPhase.Canceled)
-        {
-            AttackCanceledEvent?.Invoke();
-            Debug.Log("Attack Canceled");
+       }
+       if (context.phase == InputActionPhase.Canceled)
+       {
+           AttackCanceledEvent?.Invoke();
+           Debug.Log("Attack Canceled");
 
-        }
-    }
-    public void OnClick(InputAction.CallbackContext context)
-    {
-        if (context.phase == InputActionPhase.Performed)
-        {
-  
-            Debug.Log("Click detected");
-        }
+       }
     }
 
     public void OnJump(InputAction.CallbackContext context)
