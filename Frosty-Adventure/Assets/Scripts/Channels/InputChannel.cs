@@ -31,7 +31,7 @@ public class InputChannel : ScriptableObject, IPlayerActions
 
     public void OnMove(InputAction.CallbackContext context)
     {
-      //  Debug.Log(context.phase);   
+        Debug.Log(context.phase);   
         Vector2 moveValue = context.ReadValue<Vector2>();
         MoveEvent?.Invoke(moveValue);
     }

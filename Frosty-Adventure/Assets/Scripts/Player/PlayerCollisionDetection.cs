@@ -103,3 +103,9 @@ public class PlayerCollisionDetection : MonoBehaviour
         }
     }
 }
+
+public class Collectible
+{
+    [SerializeField] int score;
+    public int Score { get { return score; } }
+}

@@ -53,7 +53,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 62f06685729807f4e9dc131d3c55e4eb, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -96,6 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e849cb7812aab284c82c41e898d874eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputChannel: {fileID: 0}
   leftWall: {fileID: 0}
   rightWall: {fileID: 0}
   bottomWall: {fileID: 0}
@@ -120,6 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5242f12e5d6992d4d9657e8ef5de6afa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
 --- !u!95 &2564629778397120405
 Animator:
   serializedVersion: 5
@@ -152,4 +154,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e214db9af1e33a74ab9cb7a710955111, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WaterText: {fileID: 0}
+  ScoreText: {fileID: 0}

@@ -68,7 +68,7 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""left"",
+                    ""name"": ""down"",
                     ""id"": ""6a5aa9ae-e101-4022-b204-4fcae9b48e28"",
                     ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
@@ -90,7 +90,7 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""left"",
+                    ""name"": ""up"",
                     ""id"": ""18d22244-2e97-424d-94bd-a0c888873f1e"",
                     ""path"": ""<Keyboard>/upArrow"",
                     ""interactions"": """",
@@ -123,7 +123,7 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""left"",
+                    ""name"": ""down"",
                     ""id"": ""07ddb10e-e309-4bbb-9501-a74eea618461"",
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
@@ -134,7 +134,7 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""left"",
+                    ""name"": ""up"",
                     ""id"": ""c99f1d61-480c-4a4d-a76d-4f75c7e94079"",
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
@@ -145,7 +145,7 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""left"",
+                    ""name"": ""right"",
                     ""id"": ""5f6abc30-ec1b-4e4a-a1d1-5563a24b3292"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",

@@ -10,7 +10,7 @@ public class AnimationsTransitions : MonoBehaviour
     private MovementState state = MovementState.standing;
 
     public enum Level { Level1, Level2, Level3, Level4 }   
-    private Level currentLevel;
+    public Level currentLevel;
 
     void Start()
     {                
@@ -20,7 +20,7 @@ public class AnimationsTransitions : MonoBehaviour
             Debug.LogError("Animator is null, Assign it to the Player object.");
         }
 
-        ActivateLevel(Level.Level1);
+        ActivateLevel(currentLevel);
     }
     
     public void HandleJump()
@@ -78,7 +78,6 @@ public class AnimationsTransitions : MonoBehaviour
         Level newLevel = (Level)levelIndex;
         ActivateLevel(newLevel);
     }
-   
     private void UpdateAnimatorState()
     {
         if (anim != null)

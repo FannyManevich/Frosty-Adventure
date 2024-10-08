@@ -1716,8 +1716,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 350939607}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.8785, y: 4.3492, z: 1}
-  m_LocalScale: {x: 4.1, y: 1, z: 0}
+  m_LocalPosition: {x: -10.8785, y: 2.1425, z: 1}
+  m_LocalScale: {x: 4.1, y: 1.4086, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1441161139}
@@ -3972,10 +3972,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff04e0dca59af484f99f99bcb0443735, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  background: {fileID: 350939609}
   leftWall: {fileID: 2102505945}
   rightWall: {fileID: 920275439}
   bottomWall: {fileID: 492319480}
   topWall: {fileID: 8807140}
+  xBounds: {x: 0, y: 0}
+  yBounds: {x: 0, y: 0}
   FollowSpeed: 2
   target: {fileID: 791687524}
   offset: {x: 0, y: 0, z: 0}
@@ -5117,11 +5120,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 273449531914722933, guid: 427d9370ff77a0b4f83ff4c01a79a133, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 2.2226
       objectReference: {fileID: 0}
     - target: {fileID: 273449531914722933, guid: 427d9370ff77a0b4f83ff4c01a79a133, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 2.2852
       objectReference: {fileID: 0}
     - target: {fileID: 273449531914722933, guid: 427d9370ff77a0b4f83ff4c01a79a133, type: 3}
       propertyPath: m_LocalScale.z
@@ -5129,11 +5132,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 273449531914722933, guid: 427d9370ff77a0b4f83ff4c01a79a133, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -26.32
+      value: -26.2499
       objectReference: {fileID: 0}
     - target: {fileID: 273449531914722933, guid: 427d9370ff77a0b4f83ff4c01a79a133, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.32
+      value: -3.2359
       objectReference: {fileID: 0}
     - target: {fileID: 273449531914722933, guid: 427d9370ff77a0b4f83ff4c01a79a133, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5301,7 +5304,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6728763652631572178, guid: 427d9370ff77a0b4f83ff4c01a79a133, type: 3}
       propertyPath: moveSpeed
-      value: 15
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6728763652631572178, guid: 427d9370ff77a0b4f83ff4c01a79a133, type: 3}
       propertyPath: rightWall
@@ -5380,7 +5383,7 @@ Rigidbody2D:
   m_LinearDrag: 0.5
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 62f06685729807f4e9dc131d3c55e4eb, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1

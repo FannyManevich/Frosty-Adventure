@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public InputChannel inputChannel;
     public Transform leftWall;
     public Transform rightWall;
     public Transform bottomWall;
@@ -20,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     public float smallDownwardForce = 0.2f;
 
     private Rigidbody2D rb;
-    private InputChannel inputChannel;
+    Vector2 moveDirection;
 
     private bool isJumping;
 
@@ -28,13 +29,13 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 1f;
-
-        AddListeners();
-
+        
         if (inputChannel == null)
         {
             Debug.LogError("InputChannel not found in BeaconSO!");
         }
+
+        AddListeners();
     }
 
     private void AddListeners()
@@ -65,10 +66,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector3 clampedPosition = transform.position;
-        clampedPosition.x = Mathf.Clamp(clampedPosition.x, leftWall.position.x + 0.5f, rightWall.position.x - 0.5f);
-        clampedPosition.y = Mathf.Clamp(clampedPosition.y, bottomWall.position.y + 0.5f, topWall.position.y - 0.5f);
-        transform.position = clampedPosition;
+        //Vector3 clampedPosition = transform.position;
+        //clampedPosition.x = Mathf.Clamp(clampedPosition.x, leftWall.position.x + 0.5f, rightWall.position.x - 0.5f);
+        //clampedPosition.y = Mathf.Clamp(clampedPosition.y, bottomWall.position.y + 0.5f, topWall.position.y - 0.5f);
+        //transform.position = clampedPosition;
+        rb.velocity = new Vector2(moveDirection.x * moveSpeed, rb.velocity.y);
 
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
@@ -95,14 +97,14 @@ public class PlayerMovement : MonoBehaviour
 
     public void HandleMovement(Vector2 moveDirection)
     {
-        Vector2 moveForce = moveDirection * moveSpeed;
+        this.moveDirection = moveDirection * moveSpeed;
 
-        if (isGrounded)
-        {
-            rb.AddForce(moveForce);
-        }else if(!isGrounded){
-                rb.AddForce(new Vector2(0, -smallDownwardForce), ForceMode2D.Force);
-            }
+        //if (isGrounded)
+        //{
+        //    rb.AddForce(moveForce);
+        //}else if(!isGrounded){
+        //        rb.AddForce(new Vector2(0, -smallDownwardForce), ForceMode2D.Force);
+        //    }
     }
 
     private void HandleJump()
