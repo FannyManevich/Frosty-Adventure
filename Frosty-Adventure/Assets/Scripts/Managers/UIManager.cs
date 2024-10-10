@@ -19,7 +19,7 @@ public class UIManager : MonoBehaviour
         if (gameOverScreen != null)
         {
             gameOverScreen.SetActive(false); 
-           // Debug.Log("GameOverScreen is successfully assigned.");
+            Debug.Log("GameOverScreen is successfully assigned.");
         }
         else
         {

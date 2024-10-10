@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isGrounded;
     public Transform groundCheck;
     public float jumpForce = 5f;
-    public float moveSpeed = 100.0f;
+    public float moveSpeed;
     public float smallDownwardForce = 0.2f;
 
     private Rigidbody2D rb;

@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class PlayerCollisionDetection : MonoBehaviour
 {
-    public Text ScoreText;
-    private int scoreCount = 0;
+     public Text ScoreText;
+     private int scoreCount = 0;
     private HealthManager healthManager;
 
     public void Start()
@@ -18,7 +18,7 @@ public class PlayerCollisionDetection : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+  /*  private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Water"))
         {
@@ -53,7 +53,7 @@ public class PlayerCollisionDetection : MonoBehaviour
             Debug.Log("Player got hurt by " + other.tag);
             healthManager.PlayerisInjured();
         }
-    }
+    } */
 
     private void UpdateLevel1Text()
     {
