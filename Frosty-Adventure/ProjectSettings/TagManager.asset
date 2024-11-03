@@ -7,10 +7,6 @@ TagManager:
   - Background
   - Enemy
   - Spike
-  - Water
-  - Score10
-  - Score20
-  - Score100
   - Collectible
   - Heart
   layers:

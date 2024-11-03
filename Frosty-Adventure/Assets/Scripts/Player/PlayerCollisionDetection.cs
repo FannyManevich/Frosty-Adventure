@@ -1,12 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerCollisionDetection : MonoBehaviour
 {
-     public Text ScoreText;
-     private int scoreCount = 0;
+    public Text ScoreText;
+
+    private int scoreCount = 0;
     private HealthManager healthManager;
 
     public void Start()
@@ -17,95 +16,98 @@ public class PlayerCollisionDetection : MonoBehaviour
             Debug.LogError("HealthManager not found in the scene!");
         }
     }
-
-  /*  private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Water"))
+        Debug.Log("Collided with: " + other.gameObject.name);
+
+        if (other.CompareTag("Collectible"))
         {
-            Destroy(other.gameObject);
-            Debug.Log("Water bottle collected!");
-            scoreCount += 1;
-            UpdateLevel1Text();
+            CollectibleScore collectible = other.GetComponent<CollectibleScore>();
+            if (collectible != null)
+            {
+                int collectibleScore = collectible.Score;
+
+                scoreCount += collectibleScore;
+
+                Debug.Log("Item collected, Score: " + collectibleScore);
+
+                UpdateScoreText();
+                Destroy(other.gameObject);
+            }
+            else
+            {
+                Debug.LogError("CollectibleScore component not found on the collectible object");
+            }
         }
-        else if (other.CompareTag("Score10"))
+        else if (other.CompareTag("Enemy"))
         {
-            Destroy(other.gameObject);
-            Debug.Log("Item collected!");
-            scoreCount += 10;
-            UpdateLevel3Text();
+            if (GetComponent<Rigidbody2D>().velocity.y < 0)
+            {
+                Debug.Log("Player jumped on enemy: " + other.gameObject.name);
+                Destroy(other.gameObject);
+            }
+            else
+            {
+                Debug.Log("Player got hurt by " + other.tag);
+                healthManager.PlayerisInjured();
+            }
         }
-        else if (other.CompareTag("Score20"))
+        else if (other.CompareTag("Spike"))
         {
-            Destroy(other.gameObject);
-            Debug.Log("Item collected!");
-            scoreCount += 20;
-            UpdateLevel3Text();
-        }
-        else if (other.CompareTag("Score100"))
-        {
-            Destroy(other.gameObject);
-            Debug.Log("Item collected!");
-            scoreCount += 100;
-            UpdateLevel3Text();
-        }
-        else if (other.CompareTag("Enemy") || other.CompareTag("Spike"))
-        {
-            Debug.Log("Player got hurt by " + other.tag);
+            Debug.Log("Player got hurt by spike: " + other.gameObject.name);
             healthManager.PlayerisInjured();
         }
-    } */
 
-    private void UpdateLevel1Text()
+
+    }
+
+    /*  private void OnTriggerEnter2D(Collider2D other)
+      {
+          if (other.CompareTag("Water"))
+          {
+              Destroy(other.gameObject);
+              Debug.Log("Water bottle collected!");
+              scoreCount += 1;
+              UpdateLevel1Text();
+          }
+          else if (other.CompareTag("Score10"))
+          {
+              Destroy(other.gameObject);
+              Debug.Log("Item collected!");
+              scoreCount += 10;
+              UpdateLevel3Text();
+          }
+          else if (other.CompareTag("Score20"))
+          {
+              Destroy(other.gameObject);
+              Debug.Log("Item collected!");
+              scoreCount += 20;
+              UpdateLevel3Text();
+          }
+          else if (other.CompareTag("Score100"))
+          {
+              Destroy(other.gameObject);
+              Debug.Log("Item collected!");
+              scoreCount += 100;
+              UpdateLevel3Text();
+          }
+          else if (other.CompareTag("Enemy") || other.CompareTag("Spike"))
+          {
+              Debug.Log("Player got hurt by " + other.tag);
+              healthManager.PlayerisInjured();
+          }
+      } */
+    private void UpdateScoreText()
     {
         if (ScoreText != null)
         {
-            ScoreText.text = ScoreText.text + scoreCount;
+            ScoreText.text = "Score: " + scoreCount;
         }
         else
         {
-            Debug.LogError("Level 1 Text is not assigned in the Inspector!");
+            Debug.LogError("Score Text is not assigned in the Inspector!");
         }
     }
 
-    private void UpdateLevel2Text()
-    {
-        if (ScoreText != null)
-        {
-            ScoreText.text = ScoreText.text + scoreCount;
-        }
-        else
-        {
-            Debug.LogError("Level 2 Text is not assigned in the Inspector!");
-        }
-    }
 
-    private void UpdateLevel3Text()
-    {
-        if (ScoreText != null)
-        {
-            ScoreText.text = ScoreText.text + scoreCount;
-        }
-        else
-        {
-            Debug.LogError("Level 3 Text is not assigned in the Inspector!");
-        }
-    }
-
-    private void UpdateLevel4Text()
-    {
-        if (ScoreText != null)
-        {
-            ScoreText.text = ScoreText.text + scoreCount;
-        }
-        else
-        {
-            Debug.LogError("Level 4 Text is not assigned in the Inspector!");
-        }
-    }
-}
-
-public class Collectible
-{
-    [SerializeField] int score;
-    public int Score { get { return score; } }
 }
