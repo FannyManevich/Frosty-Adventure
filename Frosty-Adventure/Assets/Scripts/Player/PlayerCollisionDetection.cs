@@ -6,12 +6,12 @@ public class PlayerCollisionDetection : MonoBehaviour
     public Text ScoreText;
 
     private int scoreCount = 0;
-    private HealthManager healthManager;
+    private UIManager UImanager;
 
     public void Start()
     {
-        healthManager = FindObjectOfType<HealthManager>();
-        if (healthManager == null)
+        UImanager = FindObjectOfType<UIManager>();
+        if (UImanager == null)
         {
             Debug.LogError("HealthManager not found in the scene!");
         }
@@ -49,54 +49,18 @@ public class PlayerCollisionDetection : MonoBehaviour
             else
             {
                 Debug.Log("Player got hurt by " + other.tag);
-                healthManager.PlayerisInjured();
+                UImanager.PlayerisInjured();
             }
         }
         else if (other.CompareTag("Spike"))
         {
             Debug.Log("Player got hurt by spike: " + other.gameObject.name);
-            healthManager.PlayerisInjured();
+            UImanager.PlayerisInjured();
         }
 
 
     }
-
-    /*  private void OnTriggerEnter2D(Collider2D other)
-      {
-          if (other.CompareTag("Water"))
-          {
-              Destroy(other.gameObject);
-              Debug.Log("Water bottle collected!");
-              scoreCount += 1;
-              UpdateLevel1Text();
-          }
-          else if (other.CompareTag("Score10"))
-          {
-              Destroy(other.gameObject);
-              Debug.Log("Item collected!");
-              scoreCount += 10;
-              UpdateLevel3Text();
-          }
-          else if (other.CompareTag("Score20"))
-          {
-              Destroy(other.gameObject);
-              Debug.Log("Item collected!");
-              scoreCount += 20;
-              UpdateLevel3Text();
-          }
-          else if (other.CompareTag("Score100"))
-          {
-              Destroy(other.gameObject);
-              Debug.Log("Item collected!");
-              scoreCount += 100;
-              UpdateLevel3Text();
-          }
-          else if (other.CompareTag("Enemy") || other.CompareTag("Spike"))
-          {
-              Debug.Log("Player got hurt by " + other.tag);
-              healthManager.PlayerisInjured();
-          }
-      } */
+   
     private void UpdateScoreText()
     {
         if (ScoreText != null)

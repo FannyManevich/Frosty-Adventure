@@ -9,18 +9,18 @@ public class HealthManager : MonoBehaviour
     public Image[] hearts;
     public Sprite fullHeart;
     public Sprite emptyHeart;
-    private UIManager UImanager;
+    //private UIManager UImanager;
 
     void Start()
     {
-        UImanager = FindObjectOfType<UIManager>();
+        //UImanager = FindObjectOfType<UIManager>();
 
-        if (UImanager == null)
-        {
-            Debug.LogError("UIManager not found in the scene!");
-        }
+        //if (UImanager == null)
+      //  {
+        //    Debug.LogError("UIManager not found in the scene!");
+       // }
 
-        UpdateHealthUI();
+      //  UpdateHealthUI();
     }
 
     public void PlayerisInjured()
@@ -50,7 +50,7 @@ public class HealthManager : MonoBehaviour
     private void GameOver()
     {
         Debug.Log("Game Over!");
-        UIManager.isGameOver = true;
+       // UIManager.isGameOver = true;
         gameObject.SetActive(false);
     }
 }

@@ -246,17 +246,26 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "replayAction",
+                    "type": "PassThrough",
+                    "id": "7fda08e2-75c2-45de-b838-2b09aa545bb5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
                 {
                     "name": "",
-                    "id": "4f7ce0db-5f1e-4366-8130-afa2fb795669",
+                    "id": "55def080-4607-4d1b-9c60-816359b09dce",
                     "path": "<Mouse>/leftButton",
-                    "interactions": "Press",
+                    "interactions": "",
                     "processors": "",
                     "groups": "Mouse",
-                    "action": "Click",
+                    "action": "replayAction",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

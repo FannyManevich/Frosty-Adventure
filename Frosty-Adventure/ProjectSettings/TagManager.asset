@@ -9,6 +9,7 @@ TagManager:
   - Spike
   - Collectible
   - Heart
+  - Ground
   layers:
   - Default
   - TransparentFX
