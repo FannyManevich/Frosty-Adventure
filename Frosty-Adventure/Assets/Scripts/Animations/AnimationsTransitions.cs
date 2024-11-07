@@ -41,7 +41,7 @@ public class AnimationsTransitions : MonoBehaviour
             state = MovementState.standing;
         }
         Debug.Log("Jump canceled, back to standing/walking.");
-        //UpdateAnimatorState();
+        UpdateAnimatorState();
     }
 
     public void ActivateLevel(Level level)

@@ -37,15 +37,6 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Attack"",
-                    ""type"": ""Value"",
-                    ""id"": ""6cb18f49-034e-4850-ad56-4f65a2f71da8"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": ""AxisDeadzone"",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
                     ""name"": ""Jump"",
                     ""type"": ""Button"",
                     ""id"": ""8139a955-f399-4fbf-b598-2f98919046ae"",
@@ -212,28 +203,6 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""f6487319-5112-47e9-b172-7d746369121b"",
-                    ""path"": ""<Keyboard>/leftShift"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard"",
-                    ""action"": ""Attack"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""7a1b35a7-5158-426a-9503-4f5227ab04de"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard"",
-                    ""action"": ""Attack"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""4337f5d8-abad-4ef6-ada7-1c9b9247bb7f"",
                     ""path"": ""<Keyboard>/upArrow"",
                     ""interactions"": """",
@@ -268,14 +237,23 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""replayAction"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""7fda08e2-75c2-45de-b838-2b09aa545bb5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""4f7ce0db-5f1e-4366-8130-afa2fb795669"",
+                    ""id"": ""3b72daa4-f2b3-44ea-88b8-8db3373718c6"",
                     ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": ""Press"",
+                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Mouse"",
                     ""action"": ""Click"",
@@ -318,11 +296,11 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
-        m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Click = m_UI.FindAction("Click", throwIfNotFound: true);
+        m_UI_replayAction = m_UI.FindAction("replayAction", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -383,14 +361,12 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Move;
-    private readonly InputAction m_Player_Attack;
     private readonly InputAction m_Player_Jump;
     public struct PlayerActions
     {
         private @PlayerController m_Wrapper;
         public PlayerActions(@PlayerController wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
-        public InputAction @Attack => m_Wrapper.m_Player_Attack;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
@@ -404,9 +380,6 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
                 @Move.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
-                @Attack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
-                @Attack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
-                @Attack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
                 @Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
@@ -417,9 +390,6 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
-                @Attack.started += instance.OnAttack;
-                @Attack.performed += instance.OnAttack;
-                @Attack.canceled += instance.OnAttack;
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
@@ -432,11 +402,13 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_UI;
     private IUIActions m_UIActionsCallbackInterface;
     private readonly InputAction m_UI_Click;
+    private readonly InputAction m_UI_replayAction;
     public struct UIActions
     {
         private @PlayerController m_Wrapper;
         public UIActions(@PlayerController wrapper) { m_Wrapper = wrapper; }
         public InputAction @Click => m_Wrapper.m_UI_Click;
+        public InputAction @replayAction => m_Wrapper.m_UI_replayAction;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -449,6 +421,9 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
                 @Click.started -= m_Wrapper.m_UIActionsCallbackInterface.OnClick;
                 @Click.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnClick;
                 @Click.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnClick;
+                @replayAction.started -= m_Wrapper.m_UIActionsCallbackInterface.OnReplayAction;
+                @replayAction.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnReplayAction;
+                @replayAction.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnReplayAction;
             }
             m_Wrapper.m_UIActionsCallbackInterface = instance;
             if (instance != null)
@@ -456,6 +431,9 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
                 @Click.started += instance.OnClick;
                 @Click.performed += instance.OnClick;
                 @Click.canceled += instance.OnClick;
+                @replayAction.started += instance.OnReplayAction;
+                @replayAction.performed += instance.OnReplayAction;
+                @replayAction.canceled += instance.OnReplayAction;
             }
         }
     }
@@ -481,11 +459,11 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
-        void OnAttack(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
         void OnClick(InputAction.CallbackContext context);
+        void OnReplayAction(InputAction.CallbackContext context);
     }
 }

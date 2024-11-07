@@ -13,52 +13,68 @@ public class PlayerCollisionDetection : MonoBehaviour
         UImanager = FindObjectOfType<UIManager>();
         if (UImanager == null)
         {
-            Debug.LogError("HealthManager not found in the scene!");
+            Debug.LogError("UIManager not found in the scene! Assign it in the Inspector.");
+        }
+        if (ScoreText == null)
+        {
+            Debug.LogError("Score Text is not assigned! Assign it in the Inspector.");
         }
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Collided with: " + other.gameObject.name);
 
-        if (other.CompareTag("Collectible"))
+        Pickup pickup = other.GetComponent<Pickup>();
+        if (pickup != null)
         {
-            CollectibleScore collectible = other.GetComponent<CollectibleScore>();
-            if (collectible != null)
+            Debug.Log("Pickup detected: " + pickup.pickupType.typeName);
+
+            if (pickup.pickupType.typeName == "Heart")
             {
-                int collectibleScore = collectible.Score;
-
-                scoreCount += collectibleScore;
-
-                Debug.Log("Item collected, Score: " + collectibleScore);
-
-                UpdateScoreText();
+                UImanager.IncreaseHealth();
                 Destroy(other.gameObject);
             }
-            else
+            else if (pickup.pickupType.typeName == "Collectible")
             {
-                Debug.LogError("CollectibleScore component not found on the collectible object");
+                CollectibleScore collectible = other.GetComponent<CollectibleScore>();
+                if (collectible != null)
+                {
+                    int collectibleScore = collectible.Score;
+                    scoreCount += collectibleScore;
+
+                    Debug.Log("Item collected, Score: " + collectibleScore);
+
+                    UpdateScoreText();
+                    Destroy(other.gameObject);
+                }
+                else
+                {
+                    Debug.LogError("CollectibleScore component not found on the collectible object.");
+                }
             }
-        }
-        else if (other.CompareTag("Enemy"))
-        {
-            if (GetComponent<Rigidbody2D>().velocity.y < 0)
+            else if (pickup.pickupType.typeName == "Enemy")
             {
-                Debug.Log("Player jumped on enemy: " + other.gameObject.name);
-                Destroy(other.gameObject);
+                if (GetComponent<Rigidbody2D>().velocity.y < 0)
+                {
+                    Debug.Log("Player killed the enemy: " + other.gameObject.name);
+                    Destroy(other.gameObject);
+                }
+                else
+                {
+                    Debug.Log("Player got hurt by an enemy:  " + other.tag);
+                    UImanager.PlayerisInjured();
+                }
             }
-            else
+            else if (pickup.pickupType.typeName == "Traps")
             {
-                Debug.Log("Player got hurt by " + other.tag);
+                Debug.Log("Player got hurt by a trap: " + other.gameObject.name);
                 UImanager.PlayerisInjured();
             }
         }
-        else if (other.CompareTag("Spike"))
+        else
         {
-            Debug.Log("Player got hurt by spike: " + other.gameObject.name);
-            UImanager.PlayerisInjured();
+            Debug.LogWarning("Pickup component not found on the collided object.");
         }
-
-
     }
    
     private void UpdateScoreText()

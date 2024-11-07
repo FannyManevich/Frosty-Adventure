@@ -12,13 +12,12 @@ public class PlayerMovement : MonoBehaviour
     public Transform bottomWall;
     public Transform topWall;
 
-    public float groundCheckRadius = 0.2f;
+    public float groundCheckRadius;
     public LayerMask groundLayer;
     private bool isGrounded;
     public Transform groundCheck;
     public float jumpForce = 5f;
     public float moveSpeed;
-    public float smallDownwardForce = 0.2f;
 
     private Rigidbody2D rb;
     Vector2 moveDirection;
@@ -28,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.gravityScale = 1f;
+        rb.gravityScale = 9f;
         
         if (inputChannel == null)
         {
@@ -66,10 +65,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //Vector3 clampedPosition = transform.position;
-        //clampedPosition.x = Mathf.Clamp(clampedPosition.x, leftWall.position.x + 0.5f, rightWall.position.x - 0.5f);
-        //clampedPosition.y = Mathf.Clamp(clampedPosition.y, bottomWall.position.y + 0.5f, topWall.position.y - 0.5f);
-        //transform.position = clampedPosition;
         rb.velocity = new Vector2(moveDirection.x * moveSpeed, rb.velocity.y);
 
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
@@ -98,13 +93,6 @@ public class PlayerMovement : MonoBehaviour
     public void HandleMovement(Vector2 moveDirection)
     {
         this.moveDirection = moveDirection * moveSpeed;
-
-        //if (isGrounded)
-        //{
-        //    rb.AddForce(moveForce);
-        //}else if(!isGrounded){
-        //        rb.AddForce(new Vector2(0, -smallDownwardForce), ForceMode2D.Force);
-        //    }
     }
 
     private void HandleJump()
@@ -114,7 +102,6 @@ public class PlayerMovement : MonoBehaviour
             isJumping = true;
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             Debug.Log("Jump performed!");
-
         }  
     }
 
@@ -122,6 +109,7 @@ public class PlayerMovement : MonoBehaviour
     {
         return isJumping;
     }
+
     private void OnDestroy()
     {
         if (inputChannel != null)

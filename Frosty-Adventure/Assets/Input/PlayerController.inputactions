@@ -15,15 +15,6 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Attack",
-                    "type": "Value",
-                    "id": "6cb18f49-034e-4850-ad56-4f65a2f71da8",
-                    "expectedControlType": "Vector2",
-                    "processors": "AxisDeadzone",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
                     "name": "Jump",
                     "type": "Button",
                     "id": "8139a955-f399-4fbf-b598-2f98919046ae",
@@ -190,28 +181,6 @@
                 },
                 {
                     "name": "",
-                    "id": "f6487319-5112-47e9-b172-7d746369121b",
-                    "path": "<Keyboard>/leftShift",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "Attack",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "7a1b35a7-5158-426a-9503-4f5227ab04de",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "Attack",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "4337f5d8-abad-4ef6-ada7-1c9b9247bb7f",
                     "path": "<Keyboard>/upArrow",
                     "interactions": "",
@@ -260,12 +229,12 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "55def080-4607-4d1b-9c60-816359b09dce",
+                    "id": "3b72daa4-f2b3-44ea-88b8-8db3373718c6",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "Mouse",
-                    "action": "replayAction",
+                    "action": "Click",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

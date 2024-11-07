@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-//using static PlayerController;
+using System.Collections;
 
 public class UIManager : MonoBehaviour
 {
@@ -12,7 +12,6 @@ public class UIManager : MonoBehaviour
     public Text scoreText;
 
     private PlayerController UIinput;
-    private InputAction replayAction;
 
     public int health = 3;
     public Image[] hearts;
@@ -34,26 +33,7 @@ public class UIManager : MonoBehaviour
         }
         UIinput = new PlayerController();
 
-        replayAction = UIinput.UI.ReplayGame;
-        replayAction.performed += RestartGame;
-
         UpdateHealthUI();
-    }
-
-    private void Update()
-    {
-        if (isGameOver)
-        {
-            if (gameOverScreen != null)
-            {
-                gameOverScreen.SetActive(true); 
-                Time.timeScale = 0f; 
-            }
-            else
-            {
-                Debug.LogError("GameOverScreen is not assigned in the Inspector and cannot be displayed!");
-            }
-        }
     }
     
     public void UpdateScoreText(int scoreCount)
@@ -71,8 +51,16 @@ public class UIManager : MonoBehaviour
 
     public void Pause()
     {
-        pauseMenu.SetActive(true);
-        Time.timeScale = 0f;
+        if (pauseMenu != null)
+        {
+            pauseMenu.SetActive(true);
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            Debug.LogError("pauseMenu is not assigned in the Inspector! Please assign it in the Inspector.");
+
+        }
     }
     
     public void Resume()
@@ -139,12 +127,20 @@ public class UIManager : MonoBehaviour
         {
             GameOver();
         }
-        UpdateHealthUI();
     }
-    
-    public void UpdateLives(int lives)
+
+    public void IncreaseHealth()
     {
-        Debug.Log($"Lives remaining: {lives}");
+        if (health < hearts.Length)
+        {
+            hearts[health].sprite = fullHeart;
+            health += 1;
+            Debug.Log("Player's health increased. Current health: " + health);
+        }
+        else
+        {
+            Debug.Log("Health is already at maximum!");
+        }
     }
 
     private void UpdateHealthUI()

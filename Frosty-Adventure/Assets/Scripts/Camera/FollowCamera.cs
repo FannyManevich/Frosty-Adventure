@@ -16,7 +16,7 @@ public class FollowCamera : MonoBehaviour
     Camera cam;
     public Transform target;
     public Vector3 offset;
-
+    
     private void Start()
     {
         cam = GetComponent<Camera>();
