@@ -9,10 +9,14 @@ public class GameStateManager : MonoBehaviour
     public static event Action<GameState> OnGameStateChange;
     public event Action GameOverEvent;
 
-    public InputChannel inputChannel;
+   // public InputChannel inputChannel;
+    public GameStateChannel gameStateChannel;
 
     public GameState currentState;
+    public GameState CurrentGameState => currentState;
+   // public GameState previosState;
     public GameState gameOverState;
+    
 
     private void Start()
     {       
@@ -23,50 +27,34 @@ public class GameStateManager : MonoBehaviour
         else
         {
             Debug.LogError("CurrentState is not assigned.");
-        }
-
-        AddListeners();
+        }       
     }
 
-    private void Update()
+    public void SetCurrentState(GameState state)
     {
-        if (currentState == gameOverState)
+        currentState = state;
+        if (gameStateChannel != null)
         {
-            Debug.Log("Game Over state reached.");
-            GameOverEvent?.Invoke();
+            gameStateChannel.StateEntered(state);
+        }
+        else
+        {
+            Debug.LogError("GameStateChannel is not assigned!");
         }
     }
 
-    private void AddListeners()
+    public void ChangeState(GameState newState)
     {
-        var beacon = FindObjectOfType<BeaconSO>();
-        if (beacon == null)
+        if (gameStateChannel != null)
         {
-            Debug.LogError("BeaconSO not found!");
-            return;
+            gameStateChannel.StateExited(currentState);
+            currentState = newState;
+            gameStateChannel.StateEntered(currentState);
         }
-
-        inputChannel = beacon.inputChannel;
-        if (inputChannel == null)
+        else
         {
-            Debug.LogError("InputChannel not found in BeaconSO!");
-            return;
+            Debug.LogError("GameStateChannel is not assigned!");
         }
-
-        inputChannel.PauseEvent += PauseGame;
-      //  inputChannel.ResumeEvent += ResumeGame;
-      //  inputChannel.ReplayEvent += ReplayGame;
-        inputChannel.MainMenuEvent += GoToMainMenu;
-
-        Debug.Log("Listeners added successfully.");
-    }
-
-    private void OnDisable()
-    {
-        inputChannel.PauseEvent -= PauseGame;
-       // inputChannel.ResumeEvent -= ResumeGame;
-       // inputChannel.ReplayEvent -= ReplayGame;
-        inputChannel.MainMenuEvent -= GoToMainMenu;
     }
 
     private void PauseGame()
@@ -99,11 +87,5 @@ public class GameStateManager : MonoBehaviour
             Debug.Log("Game Over State triggered.");
             GameOverEvent?.Invoke();
         }
-    }
-
-    private void GoToMainMenu()
-    {
-        Debug.Log("Going to Main Menu.");
-        SceneManager.LoadScene("Menu");
-    }
+    }   
 }

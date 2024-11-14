@@ -1,62 +1,70 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 
 public class UIManager : MonoBehaviour
 {
-    public InputChannel inputChannel;
+    public PlayerController playerController;
 
-    public GameObject mainMenuUI;
-    public GameObject gameplayUI;
-    public GameObject gameOverUI;
+    [SerializeField] private GameObject pausePanel;
+    [SerializeField] private GameObject gameOverPanel;
+
+    [SerializeField] private Button homeButton;
+    [SerializeField] private Button pauseButton;
+    [SerializeField] private Button resumeButton;
+    [SerializeField] private Button replayButton;
 
     public Text scoreText;
 
     private void Start()
-    {
+    {      
         AddListeners();
+        // Debug.Log("UIManager started");
+        Scene currentScene = SceneManager.GetActiveScene();
+        Debug.Log("Current active scene: " + currentScene.name);
+        var healthManager = FindObjectOfType<HealthManager>();
+        if (healthManager != null)
+        {
+            healthManager.GameOverEvent += OnGameOver;
+        }
+        else
+        {
+            Debug.LogError("HealthManager not found!");
+        }
     }
 
     private void AddListeners()
     {
-        var beacon = FindObjectOfType<BeaconSO>();
-        if (beacon == null)
-        {
-            Debug.LogError("BeaconSO not found!");
-            return;
-        }
+        pauseButton.onClick.AddListener(OnPauseButtonClicked);
+        resumeButton.onClick.AddListener(OnResumeButtonClicked);
+        replayButton.onClick.AddListener(OnReplayButtonClicked);
+        homeButton.onClick.AddListener(OnHomeButtonClicked);
 
-        inputChannel = beacon.inputChannel;
-        if (inputChannel == null)
-        {
-            Debug.LogError("InputChannel not found in BeaconSO!");
-            return;
-        }
+        pausePanel.SetActive(false);
+        gameOverPanel.SetActive(false);
+    }
 
-        GameStateManager.OnGameStateChange += HandleGameStateChange;
-
-        inputChannel.PauseEvent += OnPauseButtonClicked;
-        inputChannel.ReplayEvent += OnReplayButtonClicked;
-        inputChannel.MainMenuEvent += OnMainMenuButtonClicked;
-        inputChannel.ResumeEvent += OnResumeButtonClicked;
-
-        Debug.Log("Listeners added successfully.");
+    private void OnEnable()
+    {
+        playerController = new PlayerController();
+        playerController.UI.Pause.performed += OnPausePerformed;
+        playerController.UI.Resume.performed += OnResumePerformed;
+        playerController.UI.Replay.performed += OnReplayPerformed;
+        playerController.UI.Home.performed += OnHomePerformed;
+        playerController.Enable();
     }
 
     private void OnDisable()
     {
-        GameStateManager.OnGameStateChange -= HandleGameStateChange;
-
-        if (inputChannel != null)
-        {
-            inputChannel.PauseEvent -= OnPauseButtonClicked;
-            inputChannel.ReplayEvent -= OnReplayButtonClicked;
-            inputChannel.MainMenuEvent -= OnMainMenuButtonClicked;
-            inputChannel.ResumeEvent -= OnResumeButtonClicked;
-        }
-
+        playerController.UI.Pause.performed -= OnPausePerformed;
+        playerController.UI.Resume.performed -= OnResumePerformed;
+        playerController.UI.Replay.performed -= OnReplayPerformed;
+        playerController.UI.Home.performed -= OnHomePerformed;
+        playerController.Disable();
     }
-
+    
     public void QuitGame()
     {
         Application.Quit();
@@ -75,55 +83,82 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    private void HandleGameStateChange(GameState newState)
+    private void OnHomePerformed(InputAction.CallbackContext context)
     {
-        mainMenuUI.SetActive(false);
-        gameplayUI.SetActive(false);
-        gameOverUI.SetActive(false);
+        OnHomeButtonClicked();
+        Debug.Log("Home action performed");
+    }
+   
+    private void OnPausePerformed(InputAction.CallbackContext context)
+    {
+        OnPauseButtonClicked();
+        Debug.Log("Pause action performed");
+    }
 
-        if (newState.stateName == "MainMenuState")
-        {
-            mainMenuUI.SetActive(true);
-        }
-        else if (newState.stateName == "GameplayState")
-        {
-            gameplayUI.SetActive(true);
-        }
-        else if (newState.stateName == "GameOverState")
-        {
-            gameOverUI.SetActive(true);
-        }
+    private void OnResumePerformed(InputAction.CallbackContext context)
+    {
+        OnResumeButtonClicked();
+        Debug.Log("Resume action performed");
+    }
+
+    private void OnReplayPerformed(InputAction.CallbackContext context)
+    {
+        OnReplayButtonClicked();
+        Debug.Log("Replay action performed");
     }
 
     public void OnPauseButtonClicked()
     {
-        if (inputChannel != null)
+        if (pausePanel.activeInHierarchy)
+        {          
+            pausePanel.SetActive(false);
+            Time.timeScale = 1f;
+        }
+        else
         {
-            inputChannel.TriggerPauseEvent();
+            pausePanel.SetActive(true);
+            Time.timeScale = 0f;
         }
     }
 
     public void OnReplayButtonClicked()
     {
-        if (inputChannel != null)
-        {
-            inputChannel.TriggerReplayEvent();
-        }
+        Debug.Log("Replay button clicked");
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public void OnMainMenuButtonClicked()
+    public void OnHomeButtonClicked()
     {
-        if (inputChannel != null)
-        {
-            inputChannel.TriggerMainMenuEvent();
-        }
+        Debug.Log("Main Menu button clicked");
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Menu");
     }
 
     public void OnResumeButtonClicked()
     {
-        if (inputChannel != null)
+        pausePanel.SetActive(false);
+        Time.timeScale = 1f;
+        Debug.Log("Game resumed");
+    }
+
+    private void OnGameOver()
+    {
+        ShowGameOverPanel();
+    }
+  
+    public void ShowGameOverPanel()
+    {
+        if (gameOverPanel != null)
         {
-            inputChannel.TriggerResumeEvent();
+            gameOverPanel.SetActive(true);
+            Time.timeScale = 0f;
+           // Debug.Log("Game Over panel shown");
+        }
+        else
+        {
+            Debug.LogError("GameOverPanel is not assigned!");
         }
     }
+
 }

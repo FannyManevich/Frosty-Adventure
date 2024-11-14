@@ -1,9 +1,12 @@
 using System;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "GameState", menuName = "Game/GameState", order = 1)]
+[CreateAssetMenu(fileName = "GameState", menuName = "Game/GameState", order = 2)]
 public class GameState : ScriptableObject
 {
+    public State currentState;
+    public event Action<State> OnStateChanged;
+
     public enum State
     {
         MainMenu,
@@ -11,9 +14,6 @@ public class GameState : ScriptableObject
         Paused,
         GameOver
     }
-
-    public State currentState;
-    public event Action<State> OnStateChanged; 
 
     public string stateName
     {

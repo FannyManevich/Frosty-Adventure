@@ -16,13 +16,13 @@ public class GameOverManager : MonoBehaviour
 
     private void OnEnable()
     {
-        inputChannel.ReplayEvent += HandleReplay;
+       // inputChannel.ReplayEvent += HandleReplay;
         GameOverEvent += GameOver;
     }
 
     private void OnDisable()
     {
-        inputChannel.ReplayEvent -= HandleReplay;
+       // inputChannel.ReplayEvent -= HandleReplay;
         GameOverEvent -= GameOver;
     }
 
@@ -34,11 +34,11 @@ public class GameOverManager : MonoBehaviour
     public void HandleReplay()
     {
         Debug.Log("Replay game...");
-        currentState.SetState(GameState.State.Playing);
+      //  currentState.SetState(GameState.State.Playing);
 
         Time.timeScale = 1f;
         isGameOver = false;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+       // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     
     private void GameOver()

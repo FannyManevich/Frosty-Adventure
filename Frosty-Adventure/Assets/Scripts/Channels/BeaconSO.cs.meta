@@ -5,6 +5,7 @@ MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - inputChannel: {fileID: 11400000, guid: 61cdac7211ab43e4b9830e53624a5342, type: 2}
+  - gameStateChannel: {fileID: 11400000, guid: c643810763dbc07489d3ed0859471f08, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

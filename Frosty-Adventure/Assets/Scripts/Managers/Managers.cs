@@ -20,7 +20,7 @@ public class Managers : MonoBehaviour
             }
         }
 
-       // DontDestroy(gameObject);
+        //DontDestroy(gameObject);
     }
 
     void Update()

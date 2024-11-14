@@ -4,16 +4,16 @@ using UnityEngine.UI;
 public class PlayerCollisionDetection : MonoBehaviour
 {
     public Text ScoreText;
-
     private int scoreCount = 0;
-    private HealthManager healthManager;
+
+    public HealthManager healthManager;
 
     public void Start()
     {
         healthManager = FindObjectOfType<HealthManager>();
         if (healthManager == null)
         {
-            Debug.LogError("UIManager not found in the scene! Assign it in the Inspector.");
+            Debug.LogError("HealthManager not found in the scene! Assign it in the Inspector.");
         }
         if (ScoreText == null)
         {

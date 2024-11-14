@@ -779,7 +779,6 @@ GameObject:
   - component: {fileID: 453781794}
   - component: {fileID: 453781793}
   - component: {fileID: 453781792}
-  - component: {fileID: 453781795}
   m_Layer: 5
   m_Name: Level 3
   m_TagString: Untagged
@@ -890,21 +889,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 453781790}
   m_CullTransparentMesh: 1
---- !u!114 &453781795
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 453781790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f69dbf6a54c2ace498937d75303d85fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneNameToLoad: Level_3
-  activationKey: 323
-  myButton: {fileID: 453781792}
 --- !u!1 &612705174
 GameObject:
   m_ObjectHideFlags: 0
@@ -1456,10 +1440,8 @@ MonoBehaviour:
 
     Jump - up arrow.
 
-    Shoot -
-    space.
-
-    and... be brave!'
+    and... be
+    brave!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4a0958dab9c223c4fad18513ac219709, type: 2}
   m_sharedMaterial: {fileID: -8152909469197806275, guid: 4a0958dab9c223c4fad18513ac219709, type: 2}
@@ -1989,7 +1971,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 17.130737, y: -90.55142}
+  m_AnchoredPosition: {x: 17.130737, y: -90.55144}
   m_SizeDelta: {x: -451.6577, y: -214.3836}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1303898610
@@ -2820,7 +2802,6 @@ GameObject:
   - component: {fileID: 1874187051}
   - component: {fileID: 1874187050}
   - component: {fileID: 1874187049}
-  - component: {fileID: 1874187052}
   m_Layer: 5
   m_Name: Level 1
   m_TagString: Untagged
@@ -2931,21 +2912,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1874187047}
   m_CullTransparentMesh: 1
---- !u!114 &1874187052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1874187047}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f69dbf6a54c2ace498937d75303d85fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneNameToLoad: Level_1
-  activationKey: 323
-  myButton: {fileID: 1874187049}
 --- !u!1 &1917912162
 GameObject:
   m_ObjectHideFlags: 0
@@ -3092,7 +3058,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 10.929077, y: -92.54434}
+  m_AnchoredPosition: {x: 10.929077, y: -92.54436}
   m_SizeDelta: {x: -466.60776, y: -219.54784}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1971725936
@@ -3145,7 +3111,6 @@ GameObject:
   - component: {fileID: 1989205963}
   - component: {fileID: 1989205962}
   - component: {fileID: 1989205961}
-  - component: {fileID: 1989205964}
   m_Layer: 5
   m_Name: Level 2
   m_TagString: Untagged
@@ -3256,21 +3221,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1989205959}
   m_CullTransparentMesh: 1
---- !u!114 &1989205964
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1989205959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f69dbf6a54c2ace498937d75303d85fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneNameToLoad: Level_2
-  activationKey: 323
-  myButton: {fileID: 1989205961}
 --- !u!1 &2035457183
 GameObject:
   m_ObjectHideFlags: 0
@@ -3321,7 +3271,6 @@ GameObject:
   - component: {fileID: 2064727765}
   - component: {fileID: 2064727764}
   - component: {fileID: 2064727763}
-  - component: {fileID: 2064727766}
   m_Layer: 5
   m_Name: Level 4
   m_TagString: Untagged
@@ -3432,21 +3381,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2064727761}
   m_CullTransparentMesh: 1
---- !u!114 &2064727766
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2064727761}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f69dbf6a54c2ace498937d75303d85fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneNameToLoad: Level_4
-  activationKey: 323
-  myButton: {fileID: 2064727763}
 --- !u!1 &2126746301
 GameObject:
   m_ObjectHideFlags: 0
