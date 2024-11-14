@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 public class Level3Movement : MonoBehaviour
 {
     private Rigidbody2D rb;
-    //public float moveSpeed = 20.0f;
     private Vector2 moveDirection = Vector2.zero;
     public InputChannel inputChannel;
 
@@ -45,6 +44,6 @@ public class Level3Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = moveDirection * 10;
+        rb.velocity = moveDirection * 5;
     }
 }

@@ -1,8 +1,7 @@
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
+//using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -27,7 +26,6 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.gravityScale = 9f;
         
         if (inputChannel == null)
         {
@@ -104,7 +102,6 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("Jump performed!");
         }  
     }
-
     public bool IsJumping()
     {
         return isJumping;

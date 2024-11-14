@@ -6,12 +6,12 @@ public class PlayerCollisionDetection : MonoBehaviour
     public Text ScoreText;
 
     private int scoreCount = 0;
-    private UIManager UImanager;
+    private HealthManager healthManager;
 
     public void Start()
     {
-        UImanager = FindObjectOfType<UIManager>();
-        if (UImanager == null)
+        healthManager = FindObjectOfType<HealthManager>();
+        if (healthManager == null)
         {
             Debug.LogError("UIManager not found in the scene! Assign it in the Inspector.");
         }
@@ -31,7 +31,7 @@ public class PlayerCollisionDetection : MonoBehaviour
 
             if (pickup.pickupType.typeName == "Heart")
             {
-                UImanager.IncreaseHealth();
+                healthManager.IncreaseHealth();
                 Destroy(other.gameObject);
             }
             else if (pickup.pickupType.typeName == "Collectible")
@@ -62,18 +62,14 @@ public class PlayerCollisionDetection : MonoBehaviour
                 else
                 {
                     Debug.Log("Player got hurt by an enemy:  " + other.tag);
-                    UImanager.PlayerisInjured();
+                    healthManager.PlayerisInjured();
                 }
             }
-            else if (pickup.pickupType.typeName == "Traps")
+            else if (pickup.pickupType.typeName == "Damage")
             {
-                Debug.Log("Player got hurt by a trap: " + other.gameObject.name);
-                UImanager.PlayerisInjured();
+                Debug.Log("Player got hurt by an enemy: " + other.gameObject.name);
+                healthManager.PlayerisInjured();
             }
-        }
-        else
-        {
-            Debug.LogWarning("Pickup component not found on the collided object.");
         }
     }
    
@@ -88,6 +84,4 @@ public class PlayerCollisionDetection : MonoBehaviour
             Debug.LogError("Score Text is not assigned in the Inspector!");
         }
     }
-
-
 }

@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e32feb34c4dc32438cc832178da60e6, type: 3}
   m_Name: EnemyType
   m_EditorClassIdentifier: 
-  typeName: Shark
+  typeName: Enemy

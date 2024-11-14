@@ -480,7 +480,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 259957522}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 39, y: 147.73, z: -81.9557}
+  m_LocalPosition: {x: 39, y: 147.73, z: 0}
   m_LocalScale: {x: 37.35, y: 13.656275, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1729,15 +1729,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Amit Sherman 209284017
-
-    Fanny Manevich 206116725
-
-
-    Mentor
-
-    Ella
-    Luna Pleasance'
+  m_text: "Fanny Manevich \n206116725\n\nMentor\nElla Luna Pleasance"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4a0958dab9c223c4fad18513ac219709, type: 2}
   m_sharedMaterial: {fileID: -8152909469197806275, guid: 4a0958dab9c223c4fad18513ac219709, type: 2}

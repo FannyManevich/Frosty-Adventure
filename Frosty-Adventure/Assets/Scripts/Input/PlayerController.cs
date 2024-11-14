@@ -136,7 +136,7 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""right"",
+                    ""name"": ""left"",
                     ""id"": ""5f6abc30-ec1b-4e4a-a1d1-5563a24b3292"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
@@ -239,9 +239,36 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""replayAction"",
-                    ""type"": ""PassThrough"",
+                    ""name"": ""Replay"",
+                    ""type"": ""Button"",
                     ""id"": ""7fda08e2-75c2-45de-b838-2b09aa545bb5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""f9b6c002-7ff4-42f1-9f6e-1057a28ce170"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MainMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""138c0827-7948-4c70-9f04-6ea26912a31d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Resume"",
+                    ""type"": ""Button"",
+                    ""id"": ""1872dfc6-8519-4e7a-9728-f95ec9952e70"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -300,7 +327,10 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Click = m_UI.FindAction("Click", throwIfNotFound: true);
-        m_UI_replayAction = m_UI.FindAction("replayAction", throwIfNotFound: true);
+        m_UI_Replay = m_UI.FindAction("Replay", throwIfNotFound: true);
+        m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
+        m_UI_MainMenu = m_UI.FindAction("MainMenu", throwIfNotFound: true);
+        m_UI_Resume = m_UI.FindAction("Resume", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -402,13 +432,19 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_UI;
     private IUIActions m_UIActionsCallbackInterface;
     private readonly InputAction m_UI_Click;
-    private readonly InputAction m_UI_replayAction;
+    private readonly InputAction m_UI_Replay;
+    private readonly InputAction m_UI_Pause;
+    private readonly InputAction m_UI_MainMenu;
+    private readonly InputAction m_UI_Resume;
     public struct UIActions
     {
         private @PlayerController m_Wrapper;
         public UIActions(@PlayerController wrapper) { m_Wrapper = wrapper; }
         public InputAction @Click => m_Wrapper.m_UI_Click;
-        public InputAction @replayAction => m_Wrapper.m_UI_replayAction;
+        public InputAction @Replay => m_Wrapper.m_UI_Replay;
+        public InputAction @Pause => m_Wrapper.m_UI_Pause;
+        public InputAction @MainMenu => m_Wrapper.m_UI_MainMenu;
+        public InputAction @Resume => m_Wrapper.m_UI_Resume;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -421,9 +457,18 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
                 @Click.started -= m_Wrapper.m_UIActionsCallbackInterface.OnClick;
                 @Click.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnClick;
                 @Click.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnClick;
-                @replayAction.started -= m_Wrapper.m_UIActionsCallbackInterface.OnReplayAction;
-                @replayAction.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnReplayAction;
-                @replayAction.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnReplayAction;
+                @Replay.started -= m_Wrapper.m_UIActionsCallbackInterface.OnReplay;
+                @Replay.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnReplay;
+                @Replay.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnReplay;
+                @Pause.started -= m_Wrapper.m_UIActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnPause;
+                @MainMenu.started -= m_Wrapper.m_UIActionsCallbackInterface.OnMainMenu;
+                @MainMenu.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnMainMenu;
+                @MainMenu.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnMainMenu;
+                @Resume.started -= m_Wrapper.m_UIActionsCallbackInterface.OnResume;
+                @Resume.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnResume;
+                @Resume.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnResume;
             }
             m_Wrapper.m_UIActionsCallbackInterface = instance;
             if (instance != null)
@@ -431,9 +476,18 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
                 @Click.started += instance.OnClick;
                 @Click.performed += instance.OnClick;
                 @Click.canceled += instance.OnClick;
-                @replayAction.started += instance.OnReplayAction;
-                @replayAction.performed += instance.OnReplayAction;
-                @replayAction.canceled += instance.OnReplayAction;
+                @Replay.started += instance.OnReplay;
+                @Replay.performed += instance.OnReplay;
+                @Replay.canceled += instance.OnReplay;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
+                @MainMenu.started += instance.OnMainMenu;
+                @MainMenu.performed += instance.OnMainMenu;
+                @MainMenu.canceled += instance.OnMainMenu;
+                @Resume.started += instance.OnResume;
+                @Resume.performed += instance.OnResume;
+                @Resume.canceled += instance.OnResume;
             }
         }
     }
@@ -464,6 +518,9 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
     public interface IUIActions
     {
         void OnClick(InputAction.CallbackContext context);
-        void OnReplayAction(InputAction.CallbackContext context);
+        void OnReplay(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
+        void OnMainMenu(InputAction.CallbackContext context);
+        void OnResume(InputAction.CallbackContext context);
     }
 }
