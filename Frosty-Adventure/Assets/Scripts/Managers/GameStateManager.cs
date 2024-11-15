@@ -9,12 +9,13 @@ public class GameStateManager : MonoBehaviour
     public static event Action<GameState> OnGameStateChange;
     public event Action GameOverEvent;
 
-   // public InputChannel inputChannel;
+   // public static event Action OnEnterPortal;
+
     public GameStateChannel gameStateChannel;
+    public PlayerInput playerInput;
 
     public GameState currentState;
     public GameState CurrentGameState => currentState;
-   // public GameState previosState;
     public GameState gameOverState;
     
 
@@ -27,8 +28,26 @@ public class GameStateManager : MonoBehaviour
         else
         {
             Debug.LogError("CurrentState is not assigned.");
-        }       
+        }
+
+        GameStateManager.OnGameStateChange += HandleGameStateChange;
     }
+
+    public void TransitionToLevel(string levelName)
+    {
+        SceneManager.LoadScene(levelName);
+        Debug.Log("Transitioning to: " + levelName);
+    }
+
+    //private void OnEnable()
+    //{
+    //    Portal.OnEnterPortal += HandlePortalEntry;
+    //}
+
+    //private void OnDisable()
+    //{
+    //    Portal.OnEnterPortal -= HandlePortalEntry;
+    //}
 
     public void SetCurrentState(GameState state)
     {
@@ -41,6 +60,42 @@ public class GameStateManager : MonoBehaviour
         {
             Debug.LogError("GameStateChannel is not assigned!");
         }
+    }
+    private void HandleGameStateChange(GameState newState)
+    {
+        if (playerInput == null)
+        {
+            Debug.LogError("PlayerInput component not assigned.");
+            return;
+        }
+        switch (newState.stateName)
+        {
+            case "GameplayState":
+                playerInput.SwitchCurrentActionMap("Player");
+                Debug.Log("Switched to Player action map.");
+                break;
+
+            case "MainMenuState":
+            case "GameOverState":
+                playerInput.SwitchCurrentActionMap("UI");
+                Debug.Log("Switched to UI action map.");
+                break;
+
+            case "PausedState":
+                playerInput.SwitchCurrentActionMap("UI");
+                Debug.Log("Switched to UI action map - Paused.");
+                break;
+
+            default:
+                Debug.LogWarning(newState.stateName);
+                break;
+        }
+    }
+
+    private void HandlePortalEntry()
+    {
+        Debug.Log("Portal entered, transitioning to Level 3...");
+        TransitionToLevel("Level_3");
     }
 
     public void ChangeState(GameState newState)
@@ -80,12 +135,12 @@ public class GameStateManager : MonoBehaviour
             currentState = newState;
             OnGameStateChange?.Invoke(currentState);
             Debug.Log("State changed to: " + currentState.stateName);
-        }
 
-        if (newState.currentState == GameState.State.GameOver)
-        {
-            Debug.Log("Game Over State triggered.");
-            GameOverEvent?.Invoke();
-        }
+            if (newState.currentState == GameState.State.GameOver)
+            {
+                Debug.Log("Game Over State triggered.");
+                GameOverEvent?.Invoke();
+            }
+        }        
     }   
 }

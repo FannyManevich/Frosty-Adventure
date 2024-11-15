@@ -1,16 +1,22 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerCollisionDetection : MonoBehaviour
 {
+   // public static event Action OnPlayerEnterPortal;
+
     public Text ScoreText;
     private int scoreCount = 0;
 
     public HealthManager healthManager;
+    public GameStateManager gameStateManager;
 
     public void Start()
     {
         healthManager = FindObjectOfType<HealthManager>();
+
         if (healthManager == null)
         {
             Debug.LogError("HealthManager not found in the scene! Assign it in the Inspector.");
@@ -20,6 +26,17 @@ public class PlayerCollisionDetection : MonoBehaviour
             Debug.LogError("Score Text is not assigned! Assign it in the Inspector.");
         }
     }
+    
+    //private void OnEnable()
+    //{
+    //    Portal.OnPlayerEnterPortal += HandlePortalEntry;
+    //}
+
+    //private void OnDisable()
+    //{
+    //    Portal.OnPlayerEnterPortal -= HandlePortalEntry;
+    //}
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Collided with: " + other.gameObject.name);
@@ -70,9 +87,21 @@ public class PlayerCollisionDetection : MonoBehaviour
                 Debug.Log("Player got hurt by an enemy: " + other.gameObject.name);
                 healthManager.PlayerisInjured();
             }
-        }
+            else if (other.CompareTag("Portal"))
+            {
+                Debug.Log("Portal entered, transitioning to Level 3...");
+                SceneManager.LoadScene("Level_3");
+                //TransitionToLevel("Level_3");
+              //  OnPlayerEnterPortal?.Invoke();
+            }
+        }      
     }
-   
+
+   //private void HandlePortalEntry()
+   //{
+   //     OnPlayerEnterPortal?.Invoke();
+   //}
+
     private void UpdateScoreText()
     {
         if (ScoreText != null)

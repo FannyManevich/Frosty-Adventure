@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -6,24 +5,24 @@ using UnityEngine.InputSystem;
 
 public class UIManager : MonoBehaviour
 {
-    public PlayerController playerController;
-
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject gameOverPanel;
 
-    [SerializeField] private Button homeButton;
     [SerializeField] private Button pauseButton;
+    [SerializeField] private Button homeButton;
     [SerializeField] private Button resumeButton;
     [SerializeField] private Button replayButton;
 
     public Text scoreText;
+    private PlayerController playerController;
 
     private void Start()
-    {      
+    {
         AddListeners();
-        // Debug.Log("UIManager started");
+
         Scene currentScene = SceneManager.GetActiveScene();
         Debug.Log("Current active scene: " + currentScene.name);
+
         var healthManager = FindObjectOfType<HealthManager>();
         if (healthManager != null)
         {
@@ -44,8 +43,9 @@ public class UIManager : MonoBehaviour
 
         pausePanel.SetActive(false);
         gameOverPanel.SetActive(false);
+        
+        UpdateButtonInteractivity();
     }
-
     private void OnEnable()
     {
         playerController = new PlayerController();
@@ -64,7 +64,7 @@ public class UIManager : MonoBehaviour
         playerController.UI.Home.performed -= OnHomePerformed;
         playerController.Disable();
     }
-    
+
     public void QuitGame()
     {
         Application.Quit();
@@ -85,42 +85,68 @@ public class UIManager : MonoBehaviour
 
     private void OnHomePerformed(InputAction.CallbackContext context)
     {
-        OnHomeButtonClicked();
+        if (pausePanel.activeSelf)
+        {
+            OnHomeButtonClicked();
+        }
         Debug.Log("Home action performed");
     }
-   
+
     private void OnPausePerformed(InputAction.CallbackContext context)
     {
-        OnPauseButtonClicked();
+        if (!pausePanel.activeSelf)
+        {
+            OnPauseButtonClicked();
+        }
         Debug.Log("Pause action performed");
     }
 
     private void OnResumePerformed(InputAction.CallbackContext context)
     {
-        OnResumeButtonClicked();
+        if (pausePanel.activeSelf)
+        {
+            OnResumeButtonClicked();
+        }
         Debug.Log("Resume action performed");
     }
 
     private void OnReplayPerformed(InputAction.CallbackContext context)
     {
-        OnReplayButtonClicked();
+        if (gameOverPanel.activeSelf)
+        {
+            OnReplayButtonClicked();
+        }
         Debug.Log("Replay action performed");
     }
 
     public void OnPauseButtonClicked()
     {
-        if (pausePanel.activeInHierarchy)
-        {          
+        if (pausePanel.activeSelf)
+        {
+            Debug.Log("Pause button clicked");
             pausePanel.SetActive(false);
-            Time.timeScale = 1f;
+            Time.timeScale = pausePanel.activeSelf ? 0f : 1f;
+
+            pauseButton.interactable = true;
         }
         else
         {
             pausePanel.SetActive(true);
             Time.timeScale = 0f;
+            pauseButton.interactable = false;          
         }
+        UpdateButtonInteractivity();      
     }
 
+    private void UpdateButtonInteractivity()
+    {
+        bool isPausePanelActive = pausePanel.activeSelf;
+        pauseButton.interactable = !isPausePanelActive;
+        resumeButton.interactable = isPausePanelActive;
+        replayButton.interactable = isPausePanelActive;
+        homeButton.interactable = isPausePanelActive; 
+        Debug.Log($"Button states updated: pauseButton {pauseButton.interactable}, resumeButton {resumeButton.interactable}, replayButton {replayButton.interactable}, homeButton {homeButton.interactable}");
+    }
     public void OnReplayButtonClicked()
     {
         Debug.Log("Replay button clicked");
@@ -159,6 +185,5 @@ public class UIManager : MonoBehaviour
         {
             Debug.LogError("GameOverPanel is not assigned!");
         }
-    }
-
+    }    
 }

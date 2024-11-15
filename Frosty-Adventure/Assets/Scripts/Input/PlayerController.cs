@@ -230,19 +230,10 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
             ""id"": ""e5108f5a-6645-4db1-b333-1b41e69904c6"",
             ""actions"": [
                 {
-                    ""name"": ""Click"",
-                    ""type"": ""Button"",
-                    ""id"": ""72dde635-b895-4b33-a549-0db3f6e488a0"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
                     ""name"": ""Replay"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""7fda08e2-75c2-45de-b838-2b09aa545bb5"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -258,18 +249,18 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Home"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""138c0827-7948-4c70-9f04-6ea26912a31d"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Resume"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""1872dfc6-8519-4e7a-9728-f95ec9952e70"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -278,22 +269,11 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""3b72daa4-f2b3-44ea-88b8-8db3373718c6"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Mouse"",
-                    ""action"": ""Click"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""2b573907-faba-483b-a62f-2d55265f2c3d"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""path"": ""<Keyboard>/r"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Mouse"",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Replay"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -312,10 +292,10 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""fef1686a-39fb-41cf-9e25-a22e33075f41"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""path"": ""<Keyboard>/h"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Mouse"",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Home"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -323,10 +303,10 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""65b08a31-b73f-435e-9865-7392b3635c56"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Mouse"",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Resume"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -370,7 +350,6 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
-        m_UI_Click = m_UI.FindAction("Click", throwIfNotFound: true);
         m_UI_Replay = m_UI.FindAction("Replay", throwIfNotFound: true);
         m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
         m_UI_Home = m_UI.FindAction("Home", throwIfNotFound: true);
@@ -475,7 +454,6 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
     // UI
     private readonly InputActionMap m_UI;
     private IUIActions m_UIActionsCallbackInterface;
-    private readonly InputAction m_UI_Click;
     private readonly InputAction m_UI_Replay;
     private readonly InputAction m_UI_Pause;
     private readonly InputAction m_UI_Home;
@@ -484,7 +462,6 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
     {
         private @PlayerController m_Wrapper;
         public UIActions(@PlayerController wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Click => m_Wrapper.m_UI_Click;
         public InputAction @Replay => m_Wrapper.m_UI_Replay;
         public InputAction @Pause => m_Wrapper.m_UI_Pause;
         public InputAction @Home => m_Wrapper.m_UI_Home;
@@ -498,9 +475,6 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
         {
             if (m_Wrapper.m_UIActionsCallbackInterface != null)
             {
-                @Click.started -= m_Wrapper.m_UIActionsCallbackInterface.OnClick;
-                @Click.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnClick;
-                @Click.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnClick;
                 @Replay.started -= m_Wrapper.m_UIActionsCallbackInterface.OnReplay;
                 @Replay.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnReplay;
                 @Replay.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnReplay;
@@ -517,9 +491,6 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
             m_Wrapper.m_UIActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Click.started += instance.OnClick;
-                @Click.performed += instance.OnClick;
-                @Click.canceled += instance.OnClick;
                 @Replay.started += instance.OnReplay;
                 @Replay.performed += instance.OnReplay;
                 @Replay.canceled += instance.OnReplay;
@@ -561,7 +532,6 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
     }
     public interface IUIActions
     {
-        void OnClick(InputAction.CallbackContext context);
         void OnReplay(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
         void OnHome(InputAction.CallbackContext context);

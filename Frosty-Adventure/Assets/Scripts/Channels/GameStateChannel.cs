@@ -8,7 +8,6 @@ public class GameStateChannel : ScriptableObject
 {
     public event Action<GameState> StateEnter;
     public event Action<GameState> StateExit;
-    //public event Action<GameState> GetCurrentState;
 
     public void StateEntered(GameState state)
     {

@@ -208,19 +208,10 @@
             "id": "e5108f5a-6645-4db1-b333-1b41e69904c6",
             "actions": [
                 {
-                    "name": "Click",
-                    "type": "Button",
-                    "id": "72dde635-b895-4b33-a549-0db3f6e488a0",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
                     "name": "Replay",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "7fda08e2-75c2-45de-b838-2b09aa545bb5",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -236,18 +227,18 @@
                 },
                 {
                     "name": "Home",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "138c0827-7948-4c70-9f04-6ea26912a31d",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
                 },
                 {
                     "name": "Resume",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "1872dfc6-8519-4e7a-9728-f95ec9952e70",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -256,22 +247,11 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "3b72daa4-f2b3-44ea-88b8-8db3373718c6",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Mouse",
-                    "action": "Click",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "2b573907-faba-483b-a62f-2d55265f2c3d",
-                    "path": "<Mouse>/leftButton",
+                    "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Mouse",
+                    "groups": "Keyboard",
                     "action": "Replay",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -290,10 +270,10 @@
                 {
                     "name": "",
                     "id": "fef1686a-39fb-41cf-9e25-a22e33075f41",
-                    "path": "<Mouse>/leftButton",
+                    "path": "<Keyboard>/h",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Mouse",
+                    "groups": "Keyboard",
                     "action": "Home",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -301,10 +281,10 @@
                 {
                     "name": "",
                     "id": "65b08a31-b73f-435e-9865-7392b3635c56",
-                    "path": "<Mouse>/leftButton",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Mouse",
+                    "groups": "Keyboard",
                     "action": "Resume",
                     "isComposite": false,
                     "isPartOfComposite": false
