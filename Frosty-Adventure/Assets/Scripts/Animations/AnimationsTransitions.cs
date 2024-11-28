@@ -3,44 +3,42 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AnimationsTransitions : MonoBehaviour
-{ 
+{
     public Animator anim;
 
-    private enum MovementState {standing, walking, jumping, swimming}
+    private enum MovementState { standing, walking, jumping, swimming }
     private MovementState state = MovementState.standing;
 
-    public enum Level { Level1, Level2, Level3, Level4 }   
+    public enum Level { Level1, Level2, Level3, Level4 }
     public Level currentLevel;
+    [SerializeField] bool isJumping;
 
+    InputChannel inputChannel;
     void Start()
-    {                
+    {
         anim = GetComponent<Animator>();
         if (anim == null)
         {
             Debug.LogError("Animator is null, Assign it to the Player object.");
         }
-
+        PlayerMovement.JumpAnimation += HandleJump;
+        inputChannel = FindObjectOfType<BeaconSO>().inputChannel;
+        inputChannel.MoveEvent += HandleMovementAnimation;
         ActivateLevel(currentLevel);
     }
-    
-    public void HandleJump()
-    {
-        state = MovementState.jumping;
-        Debug.Log("Jumping detected!");
-        UpdateAnimatorState();
-    }
 
-    public void HandleJumpCancel(Vector2 movementInput)
+    public void HandleJump(bool jumping, Vector2 movement)
     {
-        if (Mathf.Abs(movementInput.x) > 0)
+        isJumping = jumping;
+        if (isJumping)
         {
-            state = MovementState.walking;
+            state = MovementState.jumping;
+            Debug.Log("Jumping detected!");
         }
         else
         {
-            state = MovementState.standing;
+            HandleMovementAnimation(movement);
         }
-        Debug.Log("Jump canceled, back to standing/walking.");
         UpdateAnimatorState();
     }
 
@@ -82,9 +80,9 @@ public class AnimationsTransitions : MonoBehaviour
     {
         if (anim != null)
         {
+            anim.SetBool("IsJumping", state == MovementState.jumping);
             anim.SetBool("IsStanding", state == MovementState.standing);
             anim.SetBool("IsWalking", state == MovementState.walking);
-            anim.SetBool("IsJumping", state == MovementState.jumping);
             anim.SetBool("IsSwimming", state == MovementState.swimming);
         }
     }
@@ -92,28 +90,30 @@ public class AnimationsTransitions : MonoBehaviour
     {
         if (anim != null)
         {
-            if(level >= Level.Level1 && level < Level.Level3)
+            if (level >= Level.Level1 && level < Level.Level3)
             {
                 anim.SetBool("IsStanding", state == MovementState.standing);
                 anim.SetBool("IsWalking", state == MovementState.walking);
                 anim.SetBool("IsJumping", state == MovementState.jumping);
             }
-            
-            if( level == Level.Level3) 
+
+            if (level == Level.Level3)
             {
                 anim.SetBool("IsSwimming", state == MovementState.swimming);
-            }          
-        }      
+            }
+        }
     }
 
     public void HandleMovementAnimation(Vector2 movementInput)
-    {   
+    {
         Debug.Log("Movement Input: " + movementInput);
-
-        if (Mathf.Abs(movementInput.x) > 0 )
+        FlipSprite(movementInput);
+        if (isJumping)
+            return;
+        if (Mathf.Abs(movementInput.x) > 0)
         {
             state = MovementState.walking;
-            FlipSprite(movementInput);
+
         }
         else
         {
@@ -126,9 +126,14 @@ public class AnimationsTransitions : MonoBehaviour
 
     private void FlipSprite(Vector2 movementInput)
     {
-        if(!Mathf.Approximately(movementInput.x, 0.0f))
+        if (!Mathf.Approximately(movementInput.x, 0.0f))
         {
-            transform.localScale = new Vector3(Mathf.Sign(movementInput.x), 1.0f, 1.0f);
+            transform.localScale = new Vector3(Mathf.Sign(movementInput.x) * 2, 2.0f, 1.0f);
         }
+    }
+    private void OnDestroy()
+    {
+        PlayerMovement.JumpAnimation -= HandleJump;
+        inputChannel.MoveEvent -= HandleMovementAnimation;
     }
 }

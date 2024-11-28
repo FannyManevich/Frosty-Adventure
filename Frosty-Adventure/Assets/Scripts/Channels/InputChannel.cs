@@ -39,7 +39,7 @@ public class InputChannel : ScriptableObject, IPlayerActions
         if (context.phase == InputActionPhase.Performed)
         {
             JumpEvent?.Invoke();
-            // Debug.Log("Jump started");
+            Debug.Log("Jump started");
         }
         else if (context.phase == InputActionPhase.Canceled)
         {

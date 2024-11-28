@@ -71,16 +71,9 @@ public class PlayerCollisionDetection : MonoBehaviour
             }
             else if (pickup.pickupType.typeName == "Enemy")
             {
-                if (GetComponent<Rigidbody2D>().velocity.y < 0)
-                {
+               
                     Debug.Log("Player killed the enemy: " + other.gameObject.name);
                     Destroy(other.gameObject);
-                }
-                else
-                {
-                    Debug.Log("Player got hurt by an enemy:  " + other.tag);
-                    healthManager.PlayerisInjured();
-                }
             }
             else if (pickup.pickupType.typeName == "Damage")
             {

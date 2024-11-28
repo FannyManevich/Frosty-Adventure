@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,20 +14,21 @@ public class PlayerMovement : MonoBehaviour
 
     public float groundCheckRadius;
     public LayerMask groundLayer;
-    private bool isGrounded;
+    [SerializeField] bool isGrounded;
     public Transform groundCheck;
     public float jumpForce = 5f;
     public float moveSpeed;
 
     private Rigidbody2D rb;
     Vector2 moveDirection;
+    public static Action<bool, Vector2> JumpAnimation;
 
     private bool isJumping;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        
+
         if (inputChannel == null)
         {
             Debug.LogError("InputChannel not found in BeaconSO!");
@@ -69,6 +71,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (isGrounded)
         {
+            if (rb.velocity.y == 0)
+                JumpAnimation?.Invoke(false, rb.velocity);
             isJumping = false;
         }
     }
@@ -88,6 +92,11 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawSphere(groundCheck.position, groundCheckRadius);
+    }
+
     public void HandleMovement(Vector2 moveDirection)
     {
         this.moveDirection = moveDirection * moveSpeed;
@@ -99,8 +108,9 @@ public class PlayerMovement : MonoBehaviour
         {
             isJumping = true;
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            JumpAnimation?.Invoke(true, rb.velocity);
             Debug.Log("Jump performed!");
-        }  
+        }
     }
     public bool IsJumping()
     {
